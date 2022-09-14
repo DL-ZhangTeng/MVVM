@@ -31,12 +31,6 @@
             android:name="com.zhangteng.app.activity.BaseTitlebarDemoActivity"
             android:exported="false" />
         <activity
-            android:name="com.zhangteng.app.activity.BaseMvpDemoActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.zhangteng.app.activity.BaseListMvpDemoActivity"
-            android:exported="false" />
-        <activity
             android:name="com.zhangteng.app.activity.BaseListDemoActivity"
             android:exported="false" />
         <activity
