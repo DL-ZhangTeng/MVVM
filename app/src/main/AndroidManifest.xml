@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.zhangteng.baselibrary">
+    package="com.zhangteng.app">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -9,7 +9,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
-        android:name=".BaseLibraryApplication"
+        android:name="com.zhangteng.app.BaseLibraryApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -22,28 +22,28 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".activity.BaseMvvmDbDemoDbActivity"
+            android:name="com.zhangteng.app.activity.BaseMvvmDbDemoDbActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.BaseMvvmDemoActivity"
+            android:name="com.zhangteng.app.activity.BaseMvvmDemoActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.BaseTitlebarDemoActivity"
+            android:name="com.zhangteng.app.activity.BaseTitlebarDemoActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.BaseMvpDemoActivity"
+            android:name="com.zhangteng.app.activity.BaseMvpDemoActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.BaseListMvpDemoActivity"
+            android:name="com.zhangteng.app.activity.BaseListMvpDemoActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.BaseListDemoActivity"
+            android:name="com.zhangteng.app.activity.BaseListDemoActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.BaseDemoActivity"
+            android:name="com.zhangteng.app.activity.BaseDemoActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.zhangteng.app.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -52,25 +52,25 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.TabLayoutActivity"
+            android:name="com.zhangteng.app.activity.TabLayoutActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.TreeActivity"
+            android:name="com.zhangteng.app.activity.TreeActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.NineImageActivity"
+            android:name="com.zhangteng.app.activity.NineImageActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.mvvmdb.MvvmDbActivity"
+            android:name="com.zhangteng.app.ui.mvvmdb.MvvmDbActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.mvvm.MvvmActivity"
+            android:name="com.zhangteng.app.ui.mvvm.MvvmActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.BaseListMvvmDemoActivity"
+            android:name="com.zhangteng.app.activity.BaseListMvvmDemoActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.BaseListMvvmDbDemoDbActivity"
+            android:name="com.zhangteng.app.activity.BaseListMvvmDbDemoDbActivity"
             android:exported="false" />
     </application>
 
