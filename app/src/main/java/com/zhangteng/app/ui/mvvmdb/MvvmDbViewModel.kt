@@ -7,7 +7,7 @@ import com.zhangteng.app.http.Api
 import com.zhangteng.app.http.entity.ArticlesBean
 import com.zhangteng.app.http.entity.NavTypeBean
 import com.zhangteng.mvvm.base.BaseLoadingViewModel
-import com.zhangteng.rxhttputils.http.HttpUtils
+import com.zhangteng.httputils.http.HttpUtils
 import com.zhangteng.utils.IException
 import com.zhangteng.utils.d
 import com.zhangteng.utils.e
@@ -48,7 +48,7 @@ class MvvmDbViewModel : BaseLoadingViewModel() {
          * 只返回结果，其他全抛自定义异常
          * */
         launchOnlyResult({
-            HttpUtils.getInstance()
+            HttpUtils.instance
                 .ConfigGlobalHttpUtils()
                 .createService(Api::class.java)
                 .getProjectList(page, cid)
@@ -66,7 +66,7 @@ class MvvmDbViewModel : BaseLoadingViewModel() {
      * */
     fun getData() {
         launchOnlyResult({
-            HttpUtils.getInstance()
+            HttpUtils.instance
                 .ConfigGlobalHttpUtils()
                 .createService(Api::class.java)
                 .naviJson()
@@ -88,7 +88,7 @@ class MvvmDbViewModel : BaseLoadingViewModel() {
 
         launchUI {
             launchFlow {
-                HttpUtils.getInstance()
+                HttpUtils.instance
                     .ConfigGlobalHttpUtils()
                     .createService(Api::class.java)
                     .naviJson()
@@ -100,7 +100,7 @@ class MvvmDbViewModel : BaseLoadingViewModel() {
                         it.data.forEach { item -> navTitle.add(item.name) }
 
                         launchFlow {
-                            HttpUtils.getInstance()
+                            HttpUtils.instance
                                 .ConfigGlobalHttpUtils()
                                 .createService(Api::class.java).getProjectList(page, it.data[0].id)
                         }

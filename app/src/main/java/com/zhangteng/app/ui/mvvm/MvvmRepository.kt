@@ -5,12 +5,12 @@ import com.zhangteng.app.http.Api
 import com.zhangteng.app.http.BaseResult
 import com.zhangteng.app.http.entity.HomeListBean
 import com.zhangteng.app.http.entity.NavTypeBean
-import com.zhangteng.rxhttputils.http.HttpUtils
+import com.zhangteng.httputils.http.HttpUtils
 
 class MvvmRepository : BaseNetRepository() {
 
     private val mService by lazy {
-        HttpUtils.getInstance().ConfigGlobalHttpUtils().createService(Api::class.java)
+        HttpUtils.instance.ConfigGlobalHttpUtils().createService(Api::class.java)
     }
 
     suspend fun getProjectList(page: Int, cid: Int): BaseResult<HomeListBean> {

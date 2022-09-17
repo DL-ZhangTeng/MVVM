@@ -7,7 +7,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.zhangteng.mvvm"
+        applicationId "com.zhangteng.app"
         minSdkVersion 21
         targetSdkVersion 32
         versionCode 1
@@ -76,7 +76,7 @@ dependencies {
 
     //网络
     //noinspection GradleDynamicVersion
-    implementation 'com.github.DL-ZhangTeng:RxHttpUtils:1.5.+'
+    implementation 'com.github.DL-ZhangTeng:HttpUtils:2.0.+'
     implementation 'androidx.lifecycle:lifecycle-common:2.4.0'
     //mvvm库已经导入lifecycle
     //implementation 'androidx.lifecycle:lifecycle-runtime:2.3.1'

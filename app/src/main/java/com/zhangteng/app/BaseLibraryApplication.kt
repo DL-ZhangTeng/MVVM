@@ -4,7 +4,7 @@ import android.app.Application
 import android.content.Context
 import androidx.multidex.MultiDex
 import com.zhangteng.base.base.BaseApplication
-import com.zhangteng.rxhttputils.http.HttpUtils
+import com.zhangteng.httputils.http.HttpUtils
 import com.zhangteng.utils.R
 import com.zhangteng.utils.StateViewHelper
 
@@ -17,7 +17,7 @@ class BaseLibraryApplication : BaseApplication() {
 
     override fun initModuleApp(application: Application?) {
         HttpUtils.init(this)
-        HttpUtils.getInstance()
+        HttpUtils.instance
             .ConfigGlobalHttpUtils() //全局的BaseUrl
             .setBaseUrl("https://www.wanandroid.com/") //开启缓存策略
             .setCache(true) //全局的请求头信息

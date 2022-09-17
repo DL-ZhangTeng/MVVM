@@ -6,7 +6,7 @@ import com.zhangteng.app.http.entity.ArticlesBean
 import com.zhangteng.app.http.entity.NavTypeBean
 import com.zhangteng.app.mvvm.repository.BaseListMvvmDbDemoDbRepository
 import com.zhangteng.mvvm.base.BaseLoadingViewModel
-import com.zhangteng.rxhttputils.http.HttpUtils
+import com.zhangteng.httputils.http.HttpUtils
 import com.zhangteng.utils.IException
 import com.zhangteng.utils.d
 import com.zhangteng.utils.e
@@ -66,7 +66,7 @@ class BaseListMvvmDbDemoDbViewModel : BaseLoadingViewModel() {
                         navData.value = it.data as MutableList<NavTypeBean>
 
                         launchFlow {
-                            HttpUtils.getInstance()
+                            HttpUtils.instance
                                 .ConfigGlobalHttpUtils()
                                 .createService(Api::class.java).getProjectList(page, it.data[0].id)
                         }
