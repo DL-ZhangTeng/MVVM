@@ -18,30 +18,30 @@ implementation 'com.github.DL-ZhangTeng:MVVM:2.0.0'
 
 ### MVVM工具包（com/zhangteng/mvvm）
 
-工具包名/类名| 描述
---- | ---
-BaseViewModel| VM层基类，内置了协程请求网络数据
-BaseLoadingViewModel| VM层带加载中状态基类，内置了协程请求网络数据
-BaseStateViewModel| VM层带网络状态基类
-BaseRefreshViewModel| VM层带刷新状态基类
-NetState| 网络是否可以状态
-NetworkStateManager|可观测的网络可以状态
-NetworkStateReceive| 网络状态广播接收器
-MvvmUtils| 获取当前类绑定的泛型ViewModel-clazz
-databind包| databind基本数据类型提供了默认值，避免取值的时候还要判空
-livedata包| livedata基本数据类型提供了默认值，避免取值的时候还要判空
-BaseMvvmActivity| 使用MVVM模式Activity基类
-BaseMvvmDbActivity| 使用MVVM模式使用DataBinding的Activity基类
-BaseMvvmFragment| 使用MVVM模式Fragment基类
-BaseMvvmDbFragment| 使用MVVM模式使用DataBinding的Fragment基类
+| 工具包名/类名              | 描述                               |
+|----------------------|----------------------------------|
+| BaseViewModel        | VM层基类，内置了协程请求网络数据                |
+| BaseLoadingViewModel | VM层带加载中状态基类，内置了协程请求网络数据          |
+| BaseStateViewModel   | VM层带网络状态基类                       |
+| BaseRefreshViewModel | VM层带刷新状态基类                       |
+| NetState             | 网络是否可以状态                         |
+| NetworkStateManager  | 可观测的网络可以状态                       |
+| NetworkStateReceive  | 网络状态广播接收器                        |
+| MvvmUtils            | 获取当前类绑定的泛型ViewModel-clazz        |
+| databind包            | databind基本数据类型提供了默认值，避免取值的时候还要判空 |
+| livedata包            | livedata基本数据类型提供了默认值，避免取值的时候还要判空 |
+| BaseMvvmActivity     | 使用MVVM模式Activity基类               |
+| BaseMvvmDbActivity   | 使用MVVM模式使用DataBinding的Activity基类 |
+| BaseMvvmFragment     | 使用MVVM模式Fragment基类               |
+| BaseMvvmDbFragment   | 使用MVVM模式使用DataBinding的Fragment基类 |
 
 ## 混淆
 -keep public class com.zhangteng.**.*{ *; }
 ## 历史版本
 
-版本| 更新| 更新时间
---- | --- | ---
-v2.0.0| 分离出MVVM库| 2022/9/14 at 23:28
+| 版本     | 更新       | 更新时间               |
+|--------|----------|--------------------|
+| v2.0.0 | 分离出MVVM库 | 2022/9/14 at 23:28 |
 
 ## 赞赏
 如果您喜欢MVVM，或感觉MVVM帮助到了您，可以点右上角“Star”支持一下，您的支持就是我的动力，谢谢
