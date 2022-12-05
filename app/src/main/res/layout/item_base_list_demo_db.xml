@@ -3,6 +3,7 @@
 
     <data>
 
+        <!--BindingAdapter.kt使用item绑定数据，所以此处name不可修改，除非自定义BindingAdapter并重写绑定数据逻辑-->
         <variable
             name="item"
             type="com.zhangteng.app.bean.BaseListDemoBean" />
