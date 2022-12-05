@@ -21,15 +21,28 @@ import com.bumptech.glide.request.RequestOptions
 object BindingAdapters {
     /**
      * description: 设置网络图centerCrop
+     *              requireAll为false, 你没有填写的属性值将为null. 所以需要做非空判断
+     * <ImageView
+     *    android:id="@+id/iv_binding_adapter"
+     *    android:layout_width="wrap_content"
+     *    android:layout_height="wrap_content"
+     *    app:imageUrl="@{url}"
+     *    app:placeHolder="@{@drawable/ic_launcher"
+     *    app:error="@{@drawable/ic_launcher}"/>
      */
-    @BindingAdapter("app:setImageUrl")
-    fun ImageView.setImageUrl(
-        url: String?,
-        options: RequestOptions = RequestOptions().centerCrop()
-    ) {
+    @BindingAdapter(
+        value = ["app:imageUrl", "app:placeHolder", "app:error"],
+        requireAll = false
+    )
+    fun ImageView.loadImage(imageUrl: String?, placeHolder: Drawable?, error: Drawable?) {
         Glide.with(context)
-            .load(url)
-            .apply(options)
+            .load(imageUrl)
+            .apply(
+                RequestOptions()
+                    .centerCrop()
+                    .placeholder(placeHolder)
+                    .error(error)
+            )
             .into(this)
     }
 
