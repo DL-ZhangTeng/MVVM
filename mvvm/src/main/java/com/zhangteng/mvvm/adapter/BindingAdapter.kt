@@ -49,7 +49,7 @@ abstract class BindingAdapter<T, VH : BindingAdapter.BindingViewHolder<T>> :
          * description 绑定数据
          * @param item
          */
-        fun bindData(item: T?) {
+        open fun bindData(item: T?) {
             binding?.setVariable(BR.item, item)
             //如果item不是BindingBean，手动启动数据绑定
             if (item !is BindingBean) {

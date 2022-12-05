@@ -1,9 +1,12 @@
-
 # MVVM
+
 根模块，包含一些常用工具类与基类
 [GitHub仓库地址](https://github.com/DL-ZhangTeng/MVVM)
+
 ## 引入
+
 ### gradle
+
 ```groovy
 allprojects {
     repositories {
@@ -11,7 +14,7 @@ allprojects {
     }
 }
 
-implementation 'com.github.DL-ZhangTeng:MVVM:2.0.0'
+implementation 'com.github.DL-ZhangTeng:MVVM:2.2.0'
 ```
 
 ## 部分工具功能(安装配套插件快速创建模板文件BaseLibraryTemplatePlugin-2.0.0.jar)
@@ -36,20 +39,27 @@ implementation 'com.github.DL-ZhangTeng:MVVM:2.0.0'
 | BaseMvvmDbFragment   | 使用MVVM模式使用DataBinding的Fragment基类 |
 
 ## 混淆
+
 -keep public class com.zhangteng.**.*{ *; }
+
 ## 历史版本
 
-| 版本     | 更新       | 更新时间               |
-|--------|----------|--------------------|
-| v2.0.0 | 分离出MVVM库 | 2022/9/14 at 23:28 |
+| 版本     | 更新                                            | 更新时间               |
+|--------|-----------------------------------------------|--------------------|
+| v2.2.0 | db模板使用BindingAdapter，因为List模板增加VH泛型所以与之前版本不兼容 | 2022/12/5 at 23:30 |
+| v2.0.1 | 使用BaseLibrary2.0.2                            | 2022/11/25 at 0:24 |
+| v2.0.0 | 分离出MVVM库                                      | 2022/9/14 at 23:28 |
 
 ## 赞赏
+
 如果您喜欢MVVM，或感觉MVVM帮助到了您，可以点右上角“Star”支持一下，您的支持就是我的动力，谢谢
 
 ## 联系我
+
 邮箱：763263311@qq.com/ztxiaoran@foxmail.com
 
 ## License
+
 Copyright (c) [2020] [Swing]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
