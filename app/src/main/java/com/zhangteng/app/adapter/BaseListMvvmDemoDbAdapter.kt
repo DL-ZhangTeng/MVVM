@@ -14,7 +14,7 @@ class BaseListMvvmDemoDbAdapter(data: MutableList<ArticlesBean?>?) :
     ): BindingViewHolder<ArticlesBean> {
         return BindingViewHolder(
             LayoutInflater.from(parent.context)
-                .inflate(R.layout.item_base_list_demo_db, parent, false)
+                .inflate(R.layout.item_base_list_demo_db2, parent, false)
         )
     }
 }
