@@ -7,8 +7,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.zhangteng.base.base.BaseAdapter
 import com.zhangteng.base.base.BaseListFragment
 import com.zhangteng.mvvm.base.BaseLoadingViewModel
-import com.zhangteng.mvvm.base.BaseStateViewModel
 import com.zhangteng.mvvm.base.BaseRefreshViewModel
+import com.zhangteng.mvvm.base.BaseStateViewModel
 import com.zhangteng.mvvm.base.BaseViewModel
 import com.zhangteng.mvvm.manager.NetState
 import com.zhangteng.mvvm.manager.NetworkStateManager
@@ -18,8 +18,8 @@ import com.zhangteng.mvvm.utils.getVmClazz
  * ViewModelFragment基类，自动把ViewModel注入Fragment
  */
 
-abstract class BaseListMvvmFragment<VM : BaseViewModel, D, A : BaseAdapter<D, BaseAdapter.DefaultViewHolder>> :
-    BaseListFragment<D, A>() {
+abstract class BaseListMvvmFragment<VM : BaseViewModel, D, VH : BaseAdapter.DefaultViewHolder, A : BaseAdapter<D, VH>> :
+    BaseListFragment<D, VH, A>() {
 
     lateinit var mViewModel: VM
 
@@ -63,8 +63,7 @@ abstract class BaseListMvvmFragment<VM : BaseViewModel, D, A : BaseAdapter<D, Ba
         if (mViewModel is BaseLoadingViewModel) {
             //显示弹窗
             (mViewModel as BaseLoadingViewModel).loadingChange.showLoadingView.observe(
-                this,
-                this::showProgressDialog
+                this, this::showProgressDialog
             )
             //关闭弹窗
             (mViewModel as BaseLoadingViewModel).loadingChange.dismissLoadingView.observe(

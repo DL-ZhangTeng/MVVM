@@ -26,7 +26,7 @@ import com.zhangteng.mvvm.BR
  * author: Swing
  * date: 2022/12/5
  */
-abstract class BindingAdapter<T : BindingBean, VH : BindingAdapter.BindingViewHolder<T>> :
+abstract class BindingAdapter<T, VH : BindingAdapter.BindingViewHolder<T>> :
     BaseAdapter<T, VH> {
     constructor()
     constructor(data: MutableList<T?>?) : super() {

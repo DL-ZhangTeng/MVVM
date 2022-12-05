@@ -5,14 +5,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.scwang.smart.refresh.layout.SmartRefreshLayout
 import com.zhangteng.app.R
-import com.zhangteng.app.adapter.BaseListMvvmDemoAdapter
+import com.zhangteng.app.adapter.BaseListMvvmDemoDbAdapter
 import com.zhangteng.app.databinding.ActivityBaseListMvvmDbDemoDbBinding
 import com.zhangteng.app.http.entity.ArticlesBean
 import com.zhangteng.app.mvvm.vm.BaseListMvvmDbDemoDbViewModel
+import com.zhangteng.mvvm.adapter.BindingAdapter
 import com.zhangteng.mvvm.mvvm.BaseListMvvmDbActivity
 
 class BaseListMvvmDbDemoDbActivity :
-    BaseListMvvmDbActivity<BaseListMvvmDbDemoDbViewModel, ActivityBaseListMvvmDbDemoDbBinding, ArticlesBean, BaseListMvvmDemoAdapter>() {
+    BaseListMvvmDbActivity<BaseListMvvmDbDemoDbViewModel, ActivityBaseListMvvmDbDemoDbBinding, ArticlesBean, BindingAdapter.BindingViewHolder<ArticlesBean>, BaseListMvvmDemoDbAdapter>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,8 +31,8 @@ class BaseListMvvmDbDemoDbActivity :
         refreshData(true)
     }
 
-    override fun createAdapter(): BaseListMvvmDemoAdapter {
-        return BaseListMvvmDemoAdapter(mList)
+    override fun createAdapter(): BaseListMvvmDemoDbAdapter {
+        return BaseListMvvmDemoDbAdapter(mList)
     }
 
     override fun getRecyclerView(): RecyclerView {

@@ -3,10 +3,10 @@ package com.zhangteng.app.activity
 import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.zhangteng.base.base.BaseActivity
-import com.zhangteng.base.widget.GridSpacingItemDecoration
 import com.zhangteng.app.R
 import com.zhangteng.app.adapter.ImageSelectorAdapter
+import com.zhangteng.base.base.BaseActivity
+import com.zhangteng.base.recyclerview.decoration.GridSpacingItemDecoration
 import com.zhangteng.imagepicker.bean.ImageInfo
 import com.zhangteng.imagepicker.imageloader.GlideImageLoader
 import com.zhangteng.utils.ImageLoader

@@ -15,8 +15,8 @@ import com.zhangteng.mvvm.utils.getVmClazz
 /**
  * ViewModelActivity基类，把ViewModel注入进来了
  */
-abstract class BaseListMvvmActivity<VM : BaseViewModel, D, A : BaseAdapter<D, BaseAdapter.DefaultViewHolder>> :
-    BaseListActivity<D, A>() {
+abstract class BaseListMvvmActivity<VM : BaseViewModel, D, VH : BaseAdapter.DefaultViewHolder, A : BaseAdapter<D, VH>> :
+    BaseListActivity<D, VH, A>() {
     lateinit var mViewModel: VM
 
     override fun onCreate(savedInstanceState: Bundle?) {

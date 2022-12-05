@@ -8,14 +8,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.scwang.smart.refresh.layout.SmartRefreshLayout
 import com.zhangteng.app.R
-import com.zhangteng.app.adapter.BaseListDemoAdapter
-import com.zhangteng.app.bean.BaseListDemoBean
+import com.zhangteng.app.adapter.BaseListDemoDbAdapter
+import com.zhangteng.app.bean.BaseListDemoDbBean
 import com.zhangteng.app.databinding.FragmentBaseListMvvmDbDemoDbBinding
 import com.zhangteng.app.mvvm.vm.BaseListMvvmDbDemoDbFragmentViewModel
+import com.zhangteng.mvvm.adapter.BindingAdapter
 import com.zhangteng.mvvm.mvvm.BaseListMvvmDbFragment
 
 class BaseListMvvmDbDemoDbFragment :
-    BaseListMvvmDbFragment<BaseListMvvmDbDemoDbFragmentViewModel, FragmentBaseListMvvmDbDemoDbBinding, BaseListDemoBean, BaseListDemoAdapter>() {
+    BaseListMvvmDbFragment<BaseListMvvmDbDemoDbFragmentViewModel, FragmentBaseListMvvmDbDemoDbBinding, BaseListDemoDbBean, BindingAdapter.BindingViewHolder<BaseListDemoDbBean>, BaseListDemoDbAdapter>() {
 
     companion object {
         fun newInstance() = BaseListMvvmDbDemoDbFragment()
@@ -36,8 +37,8 @@ class BaseListMvvmDbDemoDbFragment :
         super.initData(savedInstanceState)
     }
 
-    override fun createAdapter(): BaseListDemoAdapter {
-        return BaseListDemoAdapter()
+    override fun createAdapter(): BaseListDemoDbAdapter {
+        return BaseListDemoDbAdapter()
     }
 
     override fun getRecyclerView(): RecyclerView {

@@ -4,12 +4,13 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.scwang.smart.refresh.layout.SmartRefreshLayout
-import com.zhangteng.base.base.BaseListActivity
 import com.zhangteng.app.R
 import com.zhangteng.app.adapter.TreeAdapter
 import com.zhangteng.app.bean.TreeBean
+import com.zhangteng.base.base.BaseAdapter
+import com.zhangteng.base.base.BaseListActivity
 
-class TreeActivity : BaseListActivity<TreeBean, TreeAdapter>() {
+class TreeActivity : BaseListActivity<TreeBean, BaseAdapter.DefaultViewHolder, TreeAdapter>() {
     private var data = ArrayList<TreeBean?>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

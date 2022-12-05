@@ -11,10 +11,11 @@ import com.zhangteng.app.R
 import com.zhangteng.app.adapter.BaseListDemoAdapter
 import com.zhangteng.app.bean.BaseListDemoBean
 import com.zhangteng.app.mvvm.vm.BaseListMvvmDemoFragmentViewModel
+import com.zhangteng.base.base.BaseAdapter
 import com.zhangteng.mvvm.mvvm.BaseListMvvmFragment
 
 class BaseListMvvmDemoFragment :
-    BaseListMvvmFragment<BaseListMvvmDemoFragmentViewModel, BaseListDemoBean, BaseListDemoAdapter>() {
+    BaseListMvvmFragment<BaseListMvvmDemoFragmentViewModel, BaseListDemoBean, BaseAdapter.DefaultViewHolder, BaseListDemoAdapter>() {
 
     companion object {
         fun newInstance() = BaseListMvvmDemoFragment()

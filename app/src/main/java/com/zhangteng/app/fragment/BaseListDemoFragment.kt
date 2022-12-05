@@ -6,13 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.zhangteng.app.R
-import com.zhangteng.base.base.BaseListFragment
 import com.scwang.smart.refresh.layout.SmartRefreshLayout
-import com.zhangteng.app.bean.BaseListDemoBean
+import com.zhangteng.app.R
 import com.zhangteng.app.adapter.BaseListDemoAdapter
+import com.zhangteng.app.bean.BaseListDemoBean
+import com.zhangteng.base.base.BaseAdapter
+import com.zhangteng.base.base.BaseListFragment
 
-class BaseListDemoFragment : BaseListFragment<BaseListDemoBean, BaseListDemoAdapter>() {
+class BaseListDemoFragment :
+    BaseListFragment<BaseListDemoBean, BaseAdapter.DefaultViewHolder, BaseListDemoAdapter>() {
 
     companion object {
         fun newInstance() = BaseListDemoFragment()

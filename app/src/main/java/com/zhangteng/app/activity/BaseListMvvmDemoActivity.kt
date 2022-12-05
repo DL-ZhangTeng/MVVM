@@ -8,10 +8,11 @@ import com.zhangteng.app.R
 import com.zhangteng.app.adapter.BaseListMvvmDemoAdapter
 import com.zhangteng.app.http.entity.ArticlesBean
 import com.zhangteng.app.mvvm.vm.BaseListMvvmDemoViewModel
+import com.zhangteng.base.base.BaseAdapter
 import com.zhangteng.mvvm.mvvm.BaseListMvvmActivity
 
 class BaseListMvvmDemoActivity :
-    BaseListMvvmActivity<BaseListMvvmDemoViewModel, ArticlesBean, BaseListMvvmDemoAdapter>() {
+    BaseListMvvmActivity<BaseListMvvmDemoViewModel, ArticlesBean, BaseAdapter.DefaultViewHolder, BaseListMvvmDemoAdapter>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
