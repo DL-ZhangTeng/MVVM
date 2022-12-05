@@ -48,6 +48,7 @@ object BindingConversions {
      */
     @SuppressLint("SimpleDateFormat")
     @BindingConversion
+    @JvmStatic
     fun dateToString(time: Date): String {
         return SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(time)
     }

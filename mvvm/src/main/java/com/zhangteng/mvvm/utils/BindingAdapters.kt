@@ -31,9 +31,10 @@ object BindingAdapters {
      *    app:error="@{@drawable/ic_launcher}"/>
      */
     @BindingAdapter(
-        value = ["app:imageUrl", "app:placeHolder", "app:error"],
+        value = ["imageUrl", "placeHolder", "error"],
         requireAll = false
     )
+    @JvmStatic
     fun ImageView.loadImage(imageUrl: String?, placeHolder: Drawable?, error: Drawable?) {
         Glide.with(context)
             .load(imageUrl)
@@ -50,7 +51,7 @@ object BindingAdapters {
      * description: 设置Drawable
      */
     @SuppressLint("UseCompatLoadingForDrawables")
-    @BindingAdapter("app:setDrawableStart")
+    @BindingAdapter("setDrawableStart")
     @JvmStatic
     fun TextView.setDrawableStart(@DrawableRes resId: Int) {
         val drawable: Drawable? = this.resources.getDrawable(resId, null)
@@ -65,7 +66,7 @@ object BindingAdapters {
      * description: 设置Drawable
      */
     @SuppressLint("UseCompatLoadingForDrawables")
-    @BindingAdapter("app:setDrawableTop")
+    @BindingAdapter("setDrawableTop")
     @JvmStatic
     fun TextView.setDrawableTop(@DrawableRes resId: Int) {
         val drawable: Drawable? = this.resources.getDrawable(resId, null)
@@ -80,7 +81,7 @@ object BindingAdapters {
      * description: 设置Drawable
      */
     @SuppressLint("UseCompatLoadingForDrawables")
-    @BindingAdapter("app:setDrawableEnd")
+    @BindingAdapter("setDrawableEnd")
     @JvmStatic
     fun TextView.setDrawableEnd(@DrawableRes resId: Int) {
         val drawable: Drawable? = this.resources.getDrawable(resId, null)
@@ -95,7 +96,7 @@ object BindingAdapters {
      * description: 设置Drawable
      */
     @SuppressLint("UseCompatLoadingForDrawables")
-    @BindingAdapter("app:setDrawableBottom")
+    @BindingAdapter("setDrawableBottom")
     @JvmStatic
     fun TextView.setDrawableBottom(@DrawableRes resId: Int) {
         val drawable: Drawable? = this.resources.getDrawable(resId, null)
@@ -109,7 +110,8 @@ object BindingAdapters {
     /**
      * description: 自定义双向绑定 绑定数据 防止无限循环的发生，只有是更新的数据才可以被赋值。
      */
-    @BindingAdapter("app:setTextString")
+    @BindingAdapter("setTextString")
+    @JvmStatic
     fun TextView.setTextString(text: CharSequence?) {
         val oldText = this.text
         if (text == oldText || oldText.isNullOrEmpty()) {
@@ -121,7 +123,8 @@ object BindingAdapters {
     /**
      * description: 自定义双向绑定 绑定事件
      */
-    @BindingAdapter("app:setTextWatcher")
+    @BindingAdapter("setTextWatcher")
+    @JvmStatic
     fun TextView.setTextWatcher(textAttrChanged: InverseBindingListener?) {
         val newValue: TextWatcher? = if (textAttrChanged == null) {
             null
@@ -157,7 +160,8 @@ object BindingAdapters {
      * <EditText
      * app:setTextString=“@={demo.name}”/>
      */
-    @InverseBindingAdapter(attribute = "app:setTextString", event = "app:setTextWatcher")
+    @InverseBindingAdapter(attribute = "setTextString", event = "setTextWatcher")
+    @JvmStatic
     fun TextView.getTextString(): CharSequence {
         return this.text
     }

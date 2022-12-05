@@ -25,8 +25,8 @@ object InverseMethods {
      * description 双向数据转换 反向转换器
      */
     @JvmStatic
-    fun stringToByte(value: String?): Byte {
-        return value?.toByte() ?: 0
+    fun stringToByte(value: String?): Byte? {
+        return value?.toByte()
     }
 
     /**
@@ -45,8 +45,8 @@ object InverseMethods {
      * description 双向数据转换 反向转换器
      */
     @JvmStatic
-    fun stringToShort(value: String?): Short {
-        return value?.toShort() ?: 0
+    fun stringToShort(value: String?): Short? {
+        return value?.toShort()
     }
 
     /**
@@ -65,8 +65,8 @@ object InverseMethods {
      * description 双向数据转换 反向转换器
      */
     @JvmStatic
-    fun stringToInt(value: String?): Int {
-        return value?.toInt() ?: 0
+    fun stringToInt(value: String?): Int? {
+        return value?.toInt()
     }
 
     /**
@@ -85,8 +85,8 @@ object InverseMethods {
      * description 双向数据转换 反向转换器
      */
     @JvmStatic
-    fun stringToLong(value: String?): Long {
-        return value?.toLong() ?: 0
+    fun stringToLong(value: String?): Long? {
+        return value?.toLong()
     }
 
     /**
@@ -105,8 +105,8 @@ object InverseMethods {
      * description 双向数据转换 反向转换器
      */
     @JvmStatic
-    fun stringToFloat(value: String?): Float {
-        return value?.toFloat() ?: 0f
+    fun stringToFloat(value: String?): Float? {
+        return value?.toFloat()
     }
 
     /**
@@ -125,8 +125,8 @@ object InverseMethods {
      * description 双向数据转换 反向转换器
      */
     @JvmStatic
-    fun stringToDouble(value: String?): Double {
-        return value?.toDouble() ?: 0.0
+    fun stringToDouble(value: String?): Double? {
+        return value?.toDouble()
     }
 
     /**
@@ -145,8 +145,8 @@ object InverseMethods {
      * description 双向数据转换 反向转换器
      */
     @JvmStatic
-    fun stringToBigDecimal(value: String?): BigDecimal {
-        return value?.toBigDecimal() ?: BigDecimal("0")
+    fun stringToBigDecimal(value: String?): BigDecimal? {
+        return value?.toBigDecimal()
     }
 
     /**
@@ -169,8 +169,8 @@ object InverseMethods {
      */
     @InverseMethod("booleanToString")
     @JvmStatic
-    fun stringToBoolean(value: String?): Boolean {
-        return value?.toBoolean() ?: false
+    fun stringToBoolean(value: String?): Boolean? {
+        return value?.toBoolean()
     }
 
     /**
@@ -193,8 +193,8 @@ object InverseMethods {
      */
     @InverseMethod("booleanToCnString")
     @JvmStatic
-    fun cnStringToBoolean(value: String?): Boolean {
-        return value == "是" || value == "对" || value == "正确"
+    fun cnStringToBoolean(value: String?): Boolean? {
+        return if (value == null) null else value == "是" || value == "对" || value == "正确"
     }
 
     /**
@@ -217,8 +217,8 @@ object InverseMethods {
      */
     @InverseMethod("booleanToMathString")
     @JvmStatic
-    fun mathStringToBoolean(value: String?): Boolean {
-        return value != null && value != "0"
+    fun mathStringToBoolean(value: String?): Boolean? {
+        return if (value == null) null else value != "0"
     }
 
     /**
@@ -229,15 +229,15 @@ object InverseMethods {
      */
     @InverseMethod("booleanToInt")
     @JvmStatic
-    fun intToBoolean(value: Int?): Boolean {
-        return value != null && value != 0
+    fun intToBoolean(value: Int?): Boolean? {
+        return if (value == null) null else value != 0
     }
 
     /**
      * description 双向数据转换 反向转换器
      */
     @JvmStatic
-    fun booleanToInt(value: Boolean?): Int {
-        return if (value == true) 1 else 0
+    fun booleanToInt(value: Boolean?): Int? {
+        return if (value == null) null else if (value == true) 1 else 0
     }
 }

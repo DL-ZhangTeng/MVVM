@@ -8,6 +8,10 @@
         <variable
             name="viewModel"
             type="com.zhangteng.mvvm.base.BaseViewModel" />
+        <!--仅作为占位使用，使BindingAdapter.kt自动设置BindingBean-->
+        <variable
+            name="item"
+            type="com.zhangteng.mvvm.adapter.BindingBean" />
     </data>
 
     <LinearLayout
