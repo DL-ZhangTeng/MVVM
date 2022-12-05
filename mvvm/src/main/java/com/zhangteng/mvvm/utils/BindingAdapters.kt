@@ -99,7 +99,7 @@ object BindingAdapters {
     @BindingAdapter("app:setTextString")
     fun TextView.setTextString(text: CharSequence?) {
         val oldText = this.text
-        if (text == oldText || (oldText.isNullOrEmpty())) {
+        if (text == oldText || oldText.isNullOrEmpty()) {
             return
         }
         this.text = text
