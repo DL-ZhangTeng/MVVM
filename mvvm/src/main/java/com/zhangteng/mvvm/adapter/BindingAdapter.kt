@@ -1,41 +1,39 @@
 package com.zhangteng.mvvm.adapter
 
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.annotation.LayoutRes
 import androidx.databinding.BaseObservable
 import androidx.databinding.Bindable
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import com.zhangteng.base.base.BaseAdapter
 import com.zhangteng.mvvm.BR
-import com.zhangteng.mvvm.R
 
 /**
  * description: DataBinding 列表适配器
- *              class BaseListDemoDbBean : BindingIdBean() {
- *                  override var viewType: Int = R.layout.item_base_list_demo_db
+ *              class BaseListDemoDbBean : BindingIdBean()
+ *              class BaseListDemoDbAdapter(data: MutableList<BaseListDemoDbBean?>?) :
+ *                  BindingAdapter<BaseListDemoDbBean, BindingAdapter.BindingViewHolder<BaseListDemoDbBean>>(data) {
+ *                  override fun onCreateViewHolder(
+ *                      parent: ViewGroup,
+ *                      viewType: Int
+ *                  ): BindingViewHolder<BaseListDemoDbBean> {
+ *                      return BindingViewHolder(
+ *                          LayoutInflater.from(parent.context)
+ *                              .inflate(R.layout.item_base_list_demo_db, parent, false)
+ *                      )
+ *                  }
  *              }
- *              class BaseListDemoDbAdapter :
- *                  BindingAdapter<BaseListDemoDbBean, BindingAdapter.BindingViewHolder<BaseListDemoDbBean>>()
  * author: Swing
  * date: 2022/12/5
  */
-open class BindingAdapter<T : BindingBean, VH : BindingAdapter.BindingViewHolder<T>> :
-    BaseAdapter<T, BindingAdapter.BindingViewHolder<T>>() {
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BindingViewHolder<T> {
-        return BindingViewHolder(
-            LayoutInflater.from(parent.context).inflate(viewType, parent, false)
-        )
+abstract class BindingAdapter<T : BindingBean, VH : BindingAdapter.BindingViewHolder<T>> :
+    BaseAdapter<T, VH> {
+    constructor()
+    constructor(data: MutableList<T?>?) : super() {
+        this.data = data
     }
 
-    override fun getItemViewType(position: Int): Int {
-        return data?.get(position)?.viewType ?: super.getItemViewType(position)
-    }
-
-    override fun onBindViewHolder(holder: BindingViewHolder<T>, item: T?, position: Int) {
+    override fun onBindViewHolder(holder: VH, item: T?, position: Int) {
         holder.bindData(item)
     }
 
@@ -53,12 +51,13 @@ open class BindingAdapter<T : BindingBean, VH : BindingAdapter.BindingViewHolder
          */
         fun bindData(item: T?) {
             binding?.setVariable(BR.item, item)
-            //如果item不是BaseObservable，手动启动数据绑定
-            if (item !is BaseObservable) {
+            //如果item不是BindingBean，手动启动数据绑定
+            if (item !is BindingBean) {
                 binding?.executePendingBindings()
             }
         }
     }
+
 }
 
 /**
@@ -66,21 +65,18 @@ open class BindingAdapter<T : BindingBean, VH : BindingAdapter.BindingViewHolder
  * author: Swing
  * date: 2022/12/5
  */
-open class BindingIdBean : BaseObservable(), BindingBean {
-    @LayoutRes
-    override var viewType: Int = R.layout.mvvm_db_placeholder
-
+open class BindingIdBean : BindingBean() {
     private var id: String? = null
 
     /**
      * description: Bindable生成BR.*
      */
     @Bindable
-    fun getId(): String? {
+    open fun getId(): String? {
         return id
     }
 
-    fun setId(id: String?) {
+    open fun setId(id: String?) {
         this.id = id
         notifyPropertyChanged(BR.id)
     }
@@ -91,9 +87,4 @@ open class BindingIdBean : BaseObservable(), BindingBean {
  * author: Swing
  * date: 2022/12/5
  */
-interface BindingBean {
-    /**
-     * description: 使用LayoutRes做为viewType
-     */
-    var viewType: Int
-}
+open class BindingBean : BaseObservable()
