@@ -34,13 +34,22 @@ object BindingAdapters {
      *              GranularRoundedCorners:     DownsampleStrategy.CENTER_INSIDE      GranularRoundedCorners()
      *
      *              requireAll为false, 你没有填写的属性值将为null. 所以需要做非空判断
-     * <ImageView
-     *    android:id="@+id/iv_binding_adapter"
-     *    android:layout_width="wrap_content"
-     *    android:layout_height="wrap_content"
-     *    app:imageUrl="@{url}"
-     *    app:placeHolder="@{@drawable/ic_launcher"
-     *    app:error="@{@drawable/ic_launcher}"/>
+     *
+     *    <ImageView
+     *          android:layout_width="180dp"
+     *          android:layout_height="match_parent"
+     *          app:glideDownsampleStrategy="@{GlideBindingUtils.DownampleStrategies.INSTANCE.CENTER_INSIDE}"
+     *          app:glideError="@{R.mipmap.ic_launcher}"
+     *          app:glideImageUrl='@{"https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fbpic.588ku.com%2Felement_origin_min_pic%2F16%2F08%2F26%2F1657bffac4e3795.jpg&amp;refer=http%3A%2F%2Fbpic.588ku.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1633421267&amp;t=d59b36f659f72d06989c79f3cee54bb7"}'
+     *          app:glidePlaceHolder="@{R.mipmap.ic_launcher}"
+     *          app:glideTransformation="@{GlideBindingUtils.BitmapTransformations.INSTANCE.CIRCLE_CROP}" />
+     *
+     *
+     *     <ImageView
+     *          android:layout_width="180dp"
+     *          android:layout_height="match_parent"
+     *          app:glideImageUrl='@{"https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fbpic.588ku.com%2Felement_origin_min_pic%2F16%2F08%2F26%2F1657bffac4e3795.jpg&amp;refer=http%3A%2F%2Fbpic.588ku.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1633421267&amp;t=d59b36f659f72d06989c79f3cee54bb7"}'
+     *          app:glideRequestOptions="@{GlideBindingUtils.RequestOptionsEntities.INSTANCE.ROUNDED_CORNERS_OPTIONS.error(R.mipmap.ic_launcher).placeholder(R.mipmap.ic_launcher)}" />
      */
     @BindingAdapter(
         value = [
