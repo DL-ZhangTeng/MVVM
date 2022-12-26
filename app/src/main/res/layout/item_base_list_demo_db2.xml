@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -7,6 +8,11 @@
         <variable
             name="item"
             type="com.zhangteng.app.http.entity.ArticlesBean" />
+
+        <import type="com.zhangteng.app.R" />
+
+        <import type="com.zhangteng.mvvm.utils.GlideBindingUtils" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -15,5 +21,30 @@
         android:layout_marginTop="10dp"
         android:background="@color/base_theme_color">
 
+        <ImageView
+            android:layout_width="180dp"
+            android:layout_height="match_parent"
+            app:glideDownsampleStrategy="@{GlideBindingUtils.DownampleStrategies.INSTANCE.CENTER_INSIDE}"
+            app:glideError="@{R.mipmap.ic_launcher}"
+            app:glideImageUrl='@{"https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fbpic.588ku.com%2Felement_origin_min_pic%2F16%2F08%2F26%2F1657bffac4e3795.jpg&amp;refer=http%3A%2F%2Fbpic.588ku.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1633421267&amp;t=d59b36f659f72d06989c79f3cee54bb7"}'
+            app:glidePlaceHolder="@{R.mipmap.ic_launcher}"
+            app:glideTransformation="@{GlideBindingUtils.BitmapTransformations.INSTANCE.CIRCLE_CROP}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageView
+            android:layout_width="180dp"
+            android:layout_height="match_parent"
+            app:glideImageUrl='@{"https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fbpic.588ku.com%2Felement_origin_min_pic%2F16%2F08%2F26%2F1657bffac4e3795.jpg&amp;refer=http%3A%2F%2Fbpic.588ku.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1633421267&amp;t=d59b36f659f72d06989c79f3cee54bb7"}'
+            app:glideRequestOptions="@{GlideBindingUtils.RequestOptionsEntities.INSTANCE.ROUNDED_CORNERS_OPTIONS.error(R.mipmap.ic_launcher).placeholder(R.mipmap.ic_launcher)}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

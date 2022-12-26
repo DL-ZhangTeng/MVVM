@@ -1,6 +1,7 @@
 package com.zhangteng.mvvm.utils
 
 import android.annotation.SuppressLint
+import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
 import android.text.Editable
 import android.text.TextWatcher
@@ -11,6 +12,8 @@ import androidx.databinding.BindingAdapter
 import androidx.databinding.InverseBindingAdapter
 import androidx.databinding.InverseBindingListener
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.Transformation
+import com.bumptech.glide.load.resource.bitmap.DownsampleStrategy
 import com.bumptech.glide.request.RequestOptions
 
 /**
@@ -20,7 +23,16 @@ import com.bumptech.glide.request.RequestOptions
  */
 object BindingAdapters {
     /**
-     * description: 设置网络图centerCrop
+     * description: 设置网络图
+     *
+     *              缩放类型                      downsampleStrategy                    transformation
+     *              CenterCrop:                 DownsampleStrategy.CENTER_OUTSIDE     CenterCrop()
+     *              CenterInside:               DownsampleStrategy.CENTER_INSIDE      CenterInside()
+     *              FitCenter:                  DownsampleStrategy.FIT_CENTER         FitCenter()
+     *              CircleCrop:                 DownsampleStrategy.CENTER_INSIDE      CircleCrop()
+     *              RoundedCorners:             DownsampleStrategy.CENTER_INSIDE      RoundedCorners()
+     *              GranularRoundedCorners:     DownsampleStrategy.CENTER_INSIDE      GranularRoundedCorners()
+     *
      *              requireAll为false, 你没有填写的属性值将为null. 所以需要做非空判断
      * <ImageView
      *    android:id="@+id/iv_binding_adapter"
@@ -31,19 +43,36 @@ object BindingAdapters {
      *    app:error="@{@drawable/ic_launcher}"/>
      */
     @BindingAdapter(
-        value = ["imageUrl", "placeHolder", "error"],
+        value = [
+            "glideImageUrl",
+            "glidePlaceHolder",
+            "glideError",
+            "glideDownsampleStrategy",
+            "glideTransformation",
+            "glideRequestOptions"
+        ],
         requireAll = false
     )
     @JvmStatic
-    fun ImageView.loadImage(imageUrl: String?, placeHolder: Drawable?, error: Drawable?) {
+    fun ImageView.glideLoadImage(
+        glideImageUrl: String?,
+        glidePlaceHolder: Drawable?,
+        glideError: Drawable?,
+        glideDownsampleStrategy: DownsampleStrategy?,
+        glideTransformation: Transformation<Bitmap>?,
+        glideRequestOptions: RequestOptions? = null,
+    ) {
+        var requestOptions = glideRequestOptions
+        if (requestOptions == null) {
+            requestOptions = RequestOptions()
+        }
+        glideError?.let { requestOptions.error(glideError) }
+        glidePlaceHolder?.let { requestOptions.placeholder(glidePlaceHolder) }
+        glideTransformation?.let { requestOptions.transform(glideTransformation) }
+        glideDownsampleStrategy?.let { requestOptions.downsample(glideDownsampleStrategy) }
         Glide.with(context)
-            .load(imageUrl)
-            .apply(
-                RequestOptions()
-                    .centerCrop()
-                    .placeholder(placeHolder)
-                    .error(error)
-            )
+            .load(glideImageUrl)
+            .apply(requestOptions)
             .into(this)
     }
 
