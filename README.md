@@ -14,7 +14,7 @@ allprojects {
     }
 }
 
-implementation 'com.github.DL-ZhangTeng:MVVM:2.2.0'
+implementation 'com.github.DL-ZhangTeng:MVVM:2.3.0'
 ```
 
 ## 部分工具功能(安装配套插件快速创建模板文件BaseLibraryTemplatePlugin-2.0.0.jar)
@@ -44,11 +44,12 @@ implementation 'com.github.DL-ZhangTeng:MVVM:2.2.0'
 
 ## 历史版本
 
-| 版本     | 更新                                            | 更新时间               |
-|--------|-----------------------------------------------|--------------------|
-| v2.2.0 | db模板使用BindingAdapter，因为List模板增加VH泛型所以与之前版本不兼容 | 2022/12/5 at 23:30 |
-| v2.0.1 | 使用BaseLibrary2.0.2                            | 2022/11/25 at 0:24 |
-| v2.0.0 | 分离出MVVM库                                      | 2022/9/14 at 23:28 |
+| 版本     | 更新                                            | 更新时间                |
+|--------|-----------------------------------------------|---------------------|
+| v2.3.0 | 增加TabLayout 与 ViewPager数据绑定方法&优化Glide加载图片绑定方法 | 2022/12/27 at 13:27 |
+| v2.2.0 | db模板使用BindingAdapter，因为List模板增加VH泛型所以与之前版本不兼容 | 2022/12/5 at 23:30  |
+| v2.0.1 | 使用BaseLibrary2.0.2                            | 2022/11/25 at 0:24  |
+| v2.0.0 | 分离出MVVM库                                      | 2022/9/14 at 23:28  |
 
 ## 赞赏
 
