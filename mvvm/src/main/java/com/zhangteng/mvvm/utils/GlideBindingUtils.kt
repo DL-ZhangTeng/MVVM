@@ -62,9 +62,6 @@ class GlideBindingUtils {
 
         /** Performs no downsampling or scaling.  */
         val NONE: DownsampleStrategy = DownsampleStrategy.NONE
-
-        /** Default strategy, currently [.CENTER_OUTSIDE].  */
-        val DEFAULT = CENTER_OUTSIDE
     }
 
     object BitmapTransformations {
@@ -158,6 +155,40 @@ class GlideBindingUtils {
             .transform(BitmapTransformations.GRANULAR_ROUNDED_CORNERS)
 
         /**
+         * description: A Glide RequestOptions to a no downsampling or scaling for a bitmap.
+         */
+        val NONE = RequestOptions()
+
+        /**
+         * description: Scale the image so that either the width of the image matches the given width and the height of the image is greater than the given height or vice versa, and then crop the larger dimension to match the given dimension.
+         *              Does not maintain the image's aspect ratio
+         */
+        fun getCenterCropOptions(roundingRadius: Int): RequestOptions {
+            return RequestOptions().centerCrop()
+        }
+
+        /**
+         * description: Returns the image with its original size if its dimensions match or are smaller than the target's, couple with android.widget.ImageView.ScaleType.CENTER_INSIDE in order to center it in Target. If not, then it is scaled so that one of the dimensions of the image will be equal to the given dimension and the other will be less than the given dimension (maintaining the image's aspect ratio).
+         */
+        fun getCenterInsideOptions(roundingRadius: Int): RequestOptions {
+            return RequestOptions().centerInside()
+        }
+
+        /**
+         * description: Scales the image uniformly (maintaining the image's aspect ratio) so that one of the dimensions of the image will be equal to the given dimension and the other will be less than the given dimension.
+         */
+        fun getFitCenterOptions(roundingRadius: Int): RequestOptions {
+            return RequestOptions().fitCenter()
+        }
+
+        /**
+         * description: A Glide RequestOptions to circle crop an image. Behaves similar to a FitCenter transform, but the resulting image is masked to a circle.
+         */
+        fun getCircleCropOptions(roundingRadius: Int): RequestOptions {
+            return RequestOptions().circleCrop()
+        }
+
+        /**
          * description: Params:roundingRadius – the corner radius (in device-specific pixels).
          *              Throws:IllegalArgumentException – if rounding radius is 0 or less.
          */
@@ -186,6 +217,13 @@ class GlideBindingUtils {
                         bottomLeft
                     )
                 )
+        }
+
+        /**
+         * description: A Glide RequestOptions to a no downsampling or scaling for a bitmap.
+         */
+        fun getNoneOptions(roundingRadius: Int): RequestOptions {
+            return RequestOptions()
         }
     }
 }
