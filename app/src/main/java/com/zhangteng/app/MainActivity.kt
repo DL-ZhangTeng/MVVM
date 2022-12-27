@@ -30,7 +30,7 @@ class MainActivity : BaseActivity() {
     }
 
     fun onClickTabLayout(v: View) {
-        jumpToActivity<TabLayoutActivity>()
+        jumpToActivity<TabLayoutDbActivity>()
     }
 
     fun onClickTree(v: View) {

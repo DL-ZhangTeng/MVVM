@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.zhangteng.app.mvvm.vm.TabLayoutDbViewModel" />
+
+        <import type="java.util.Arrays" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="..activity.TabLayoutDbActivity">
+
+        <com.zhangteng.base.widget.MyTabLayout
+            android:id="@+id/tab_layout1"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="25dp"
+            app:tabMyBackground="@color/colorWhite"
+            app:tabMyIndicatorBottomLayer="false"
+            app:tabMyIndicatorColor="#ff000000"
+            app:tabMyIndicatorHeight="2dp"
+            app:tabMyIndicatorMarginBottomSelfFit="false"
+            app:tabMyIndicatorRoundRadius="2dp"
+            app:tabMyIndicatorSelfFit="false"
+            app:tabMyMode="MODE_SCROLLABLE"
+            app:tabMyPaddingEnd="18dp"
+            app:tabMyPaddingStart="18dp"
+            app:tabMySelectedTextColor="#222222"
+            app:tabMySelectedTextSize="16sp"
+            app:tabMySelectedTypeface="NORMAL"
+            app:tabMyTabViewSelf="true"
+            app:tabMyTextColor="#999999"
+            app:tabMyTextSize="14sp"
+            app:tabMyTypeface="NORMAL"
+            app:tblSetupWithViewPager="@{vp1}" />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vp1"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            app:vpFragmentManager="@{viewModel.fm}"
+            app:vpFragments="@{viewModel.fragments1}"
+            app:vpTitles="@{viewModel.titleList}" />
+
+        <com.zhangteng.base.widget.MyTabLayout
+            android:id="@+id/tab_layout2"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            app:tabMyBackground="@color/colorWhite"
+            app:tabMyIndicatorBottomLayer="false"
+            app:tabMyIndicatorColor="#00000000"
+            app:tabMyIndicatorDrawable="@mipmap/ic_delete"
+            app:tabMyIndicatorHeight="15dp"
+            app:tabMyIndicatorMarginBottomSelfFit="false"
+            app:tabMyIndicatorRoundRadius="2dp"
+            app:tabMyIndicatorSelfFit="false"
+            app:tabMyIndicatorWidth="15dp"
+            app:tabMyMode="MODE_SCROLLABLE"
+            app:tabMyPaddingEnd="18dp"
+            app:tabMyPaddingStart="18dp"
+            app:tabMySelectedTextColor="#222222"
+            app:tabMySelectedTextSize="16sp"
+            app:tabMySelectedTypeface="NORMAL"
+            app:tabMyTabViewSelf="true"
+            app:tabMyTextColor="#999999"
+            app:tabMyTextSize="14sp"
+            app:tabMyTypeface="NORMAL"
+            app:tblOnTabSelectedListener="@{viewModel.onTabSelectedListener}"
+            app:tblTabTexts="@{Arrays.asList(viewModel.titleList)}" />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vp2"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            app:vpFragmentManager="@{viewModel.fm}"
+            app:vpFragments="@{viewModel.fragments2}"
+            app:vpOnPageChangeListener="@{viewModel.onPageChangeListener}" />
+
+        <com.zhangteng.base.widget.MyTabLayout
+            android:id="@+id/tab_layout3"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            app:tabMyBackground="@color/colorWhite"
+            app:tabMyIndicatorBottomLayer="true"
+            app:tabMyIndicatorColor="#ff000000"
+            app:tabMyIndicatorHeight="2dp"
+            app:tabMyIndicatorMarginBottomSelfFit="true"
+            app:tabMyIndicatorRoundRadius="2dp"
+            app:tabMyIndicatorSelfFit="true"
+            app:tabMyMode="MODE_FIXED"
+            app:tabMySelectedTextColor="#222222"
+            app:tabMySelectedTextSize="26sp"
+            app:tabMySelectedTypeface="NORMAL"
+            app:tabMyTabViewSelf="true"
+            app:tabMyTextColor="#999999"
+            app:tabMyTextSize="14sp"
+            app:tabMyTypeface="NORMAL"
+            app:tabMyViewNumber="5"
+            app:tblTabConfigurationStrategy="@{viewModel.tblTabConfigurationStrategy}"
+            app:tblViewPager="@{vp3}"
+            app:tblViewPagerAdapter="@{viewModel.tblViewPagerAdapter}" />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vp3"
+            android:layout_width="match_parent"
+            android:layout_height="100dp" />
+    </LinearLayout>
+</layout>

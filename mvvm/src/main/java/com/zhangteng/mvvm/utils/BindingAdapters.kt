@@ -11,10 +11,17 @@ import androidx.annotation.DrawableRes
 import androidx.databinding.BindingAdapter
 import androidx.databinding.InverseBindingAdapter
 import androidx.databinding.InverseBindingListener
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.viewpager.widget.PagerAdapter
+import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.Transformation
 import com.bumptech.glide.load.resource.bitmap.DownsampleStrategy
 import com.bumptech.glide.request.RequestOptions
+import com.zhangteng.base.adapter.CommonFragmentAdapter
+import com.zhangteng.base.widget.MyTabLayout
+import com.zhangteng.base.widget.MyTabLayoutMediator
 
 /**
  * description: BindingAdapter
@@ -202,5 +209,85 @@ object BindingAdapters {
     @JvmStatic
     fun TextView.getTextString(): CharSequence {
         return this.text
+    }
+
+
+    /**
+     * description: 设置MyTabLayout.Tab文本
+     */
+    @BindingAdapter(value = ["tblTabTexts"], requireAll = false)
+    @JvmStatic
+    fun MyTabLayout.tblTabTexts(tblTabTexts: List<*>) {
+        tblTabTexts.forEach {
+            addTab(newTab().setText(it.toString()))
+        }
+    }
+
+    /**
+     * description: 设置MyTabLayout自定义Tab
+     */
+    @BindingAdapter(value = ["tblTabs"], requireAll = false)
+    @JvmStatic
+    fun MyTabLayout.tblTabs(tblTabs: List<MyTabLayout.Tab>) {
+        tblTabs.forEach {
+            addTab(it)
+        }
+    }
+
+    /**
+     * description: 设置MyTabLayout.addOnTabSelectedListener
+     */
+    @BindingAdapter(value = ["tblOnTabSelectedListener"], requireAll = false)
+    @JvmStatic
+    fun MyTabLayout.tblOnTabSelectedListener(listener: MyTabLayout.OnTabSelectedListener) {
+        addOnTabSelectedListener(listener)
+    }
+
+    /**
+     * description: MyTabLayout与ViewPager绑定
+     */
+    @BindingAdapter(value = ["tblSetupWithViewPager"], requireAll = false)
+    @JvmStatic
+    fun MyTabLayout.tblSetupWithViewPager(viewPager: ViewPager) {
+        setupWithViewPager(viewPager)
+    }
+
+    /**
+     * description: MyTabLayout与ViewPager绑定，并自定义Tab
+     */
+    @BindingAdapter(
+        value = ["tblViewPager", "tblViewPagerAdapter", "tblTabConfigurationStrategy"],
+        requireAll = false
+    )
+    @JvmStatic
+    fun MyTabLayout.tblMediator(
+        tblViewPager: ViewPager,
+        tblViewPagerAdapter: PagerAdapter,
+        tblTabConfigurationStrategy: MyTabLayoutMediator.TabConfigurationStrategy
+    ) {
+        tblViewPager.adapter = tblViewPagerAdapter
+        MyTabLayoutMediator(this, tblViewPager, tblTabConfigurationStrategy).attach()
+    }
+
+    /**
+     * description: 设置ViewPager.adapter
+     */
+    @BindingAdapter(value = ["vpFragmentManager", "vpTitles", "vpFragments"], requireAll = false)
+    @JvmStatic
+    fun ViewPager.vpAdapter(
+        vpFragmentManager: FragmentManager,
+        vpTitles: Array<String?>?,
+        vpFragments: ArrayList<Fragment>
+    ) {
+        adapter = CommonFragmentAdapter(vpFragmentManager, vpTitles, vpFragments)
+    }
+
+    /**
+     * description: 设置ViewPager.addOnPageChangeListener
+     */
+    @BindingAdapter(value = ["vpOnPageChangeListener"], requireAll = false)
+    @JvmStatic
+    fun ViewPager.vpOnPageChangeListener(vpOnPageChangeListener: ViewPager.OnPageChangeListener) {
+        addOnPageChangeListener(vpOnPageChangeListener)
     }
 }
