@@ -34,9 +34,9 @@ implementation 'com.github.DL-ZhangTeng:MVVM:2.3.0'
 | databind包            | databind基本数据类型提供了默认值，避免取值的时候还要判空 |
 | livedata包            | livedata基本数据类型提供了默认值，避免取值的时候还要判空 |
 | BaseMvvmActivity     | 使用MVVM模式Activity基类               |
-| BaseMvvmDbActivity   | 使用MVVM模式使用DataBinding的Activity基类 |
+| BaseListMvvmActivity | 使用MVVM模式列表Activity基类             |
 | BaseMvvmFragment     | 使用MVVM模式Fragment基类               |
-| BaseMvvmDbFragment   | 使用MVVM模式使用DataBinding的Fragment基类 |
+| BaseListMvvmFragment | 使用MVVM模式列表Fragment基类             |
 
 ## 混淆
 

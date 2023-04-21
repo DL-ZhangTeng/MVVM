@@ -1,4 +1,4 @@
-package com.zhangteng.mvvm.mvvm
+package com.zhangteng.mvvm.mvvm.db
 
 import android.os.Bundle
 import android.view.View
@@ -6,12 +6,13 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import com.zhangteng.mvvm.BR
 import com.zhangteng.mvvm.base.BaseViewModel
+import com.zhangteng.mvvm.mvvm.BaseMvvmFragment
 
 /**
  * ViewModelFragment基类，自动把ViewModel注入Fragment和Databind注入进来了
  * 需要使用Databind的清继承它
  */
-abstract class BaseMvvmDbFragment<VM : BaseViewModel, DB : ViewDataBinding> :
+abstract class BaseMvvmFragment<DB : ViewDataBinding, VM : BaseViewModel> :
     BaseMvvmFragment<VM>() {
 
     //该类绑定的ViewDataBinding

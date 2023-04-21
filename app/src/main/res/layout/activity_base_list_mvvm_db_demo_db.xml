@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".activity.BaseMvvmDbDemoDbActivity">
+        tools:context=".activity.BaseMvvmDbDemoActivity">
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tb_project"

@@ -1,4 +1,4 @@
-package com.zhangteng.mvvm.mvvm
+package com.zhangteng.mvvm.mvvm.db
 
 import android.view.View
 import android.view.ViewGroup
@@ -7,12 +7,13 @@ import androidx.databinding.ViewDataBinding
 import com.zhangteng.mvvm.BR
 import com.zhangteng.mvvm.adapter.BindingAdapter
 import com.zhangteng.mvvm.base.BaseViewModel
+import com.zhangteng.mvvm.mvvm.BaseListMvvmActivity
 
 /**
  * 包含ViewModel 和Databind ViewModelActivity基类，把ViewModel 和Databind注入进来了
  * 需要使用Databind的请继承它
  */
-abstract class BaseListMvvmDbActivity<VM : BaseViewModel, DB : ViewDataBinding, D, VH : BindingAdapter.BindingViewHolder<D>, A : BindingAdapter<D, VH>> :
+abstract class BaseListMvvmActivity<DB : ViewDataBinding, VM : BaseViewModel, D, VH : BindingAdapter.BindingViewHolder<D>, A : BindingAdapter<D, VH>> :
     BaseListMvvmActivity<VM, D, VH, A>() {
 
     lateinit var mDatabind: DB

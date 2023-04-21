@@ -13,13 +13,13 @@ import com.zhangteng.app.bean.BaseListDemoDbBean
 import com.zhangteng.app.databinding.FragmentBaseListMvvmDbDemoDbBinding
 import com.zhangteng.app.mvvm.vm.BaseListMvvmDbDemoDbFragmentViewModel
 import com.zhangteng.mvvm.adapter.BindingAdapter
-import com.zhangteng.mvvm.mvvm.BaseListMvvmDbFragment
+import com.zhangteng.mvvm.mvvm.db.BaseListMvvmFragment
 
-class BaseListMvvmDbDemoDbFragment :
-    BaseListMvvmDbFragment<BaseListMvvmDbDemoDbFragmentViewModel, FragmentBaseListMvvmDbDemoDbBinding, BaseListDemoDbBean, BindingAdapter.BindingViewHolder<BaseListDemoDbBean>, BaseListDemoDbAdapter>() {
+class BaseListMvvmDbDemoFragment :
+    BaseListMvvmFragment<FragmentBaseListMvvmDbDemoDbBinding, BaseListMvvmDbDemoDbFragmentViewModel, BaseListDemoDbBean, BindingAdapter.BindingViewHolder<BaseListDemoDbBean>, BaseListDemoDbAdapter>() {
 
     companion object {
-        fun newInstance() = BaseListMvvmDbDemoDbFragment()
+        fun newInstance() = BaseListMvvmDbDemoFragment()
     }
 
     override fun onCreateView(

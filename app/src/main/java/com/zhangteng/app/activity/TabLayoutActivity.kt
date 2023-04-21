@@ -8,9 +8,9 @@ import com.zhangteng.app.mvvm.vm.TabLayoutDbViewModel
 import com.zhangteng.base.adapter.CommonFragmentAdapter
 import com.zhangteng.base.widget.MyTabLayout
 import com.zhangteng.base.widget.MyTabLayoutMediator
-import com.zhangteng.mvvm.mvvm.BaseMvvmDbActivity
+import com.zhangteng.mvvm.mvvm.db.BaseMvvmActivity
 
-class TabLayoutDbActivity : BaseMvvmDbActivity<TabLayoutDbViewModel, ActivityTabLayoutDbBinding>() {
+class TabLayoutActivity : BaseMvvmActivity<ActivityTabLayoutDbBinding, TabLayoutDbViewModel>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tab_layout_db)
@@ -46,7 +46,7 @@ class TabLayoutDbActivity : BaseMvvmDbActivity<TabLayoutDbViewModel, ActivityTab
         mViewModel.tblTabConfigurationStrategy =
             object : MyTabLayoutMediator.TabConfigurationStrategy {
                 override fun onConfigureTab(tab: MyTabLayout.Tab, position: Int) {
-                    tab.setCustomView(TextView(this@TabLayoutDbActivity).apply {
+                    tab.setCustomView(TextView(this@TabLayoutActivity).apply {
                         text = mViewModel.titleList[position]
                     })
                 }

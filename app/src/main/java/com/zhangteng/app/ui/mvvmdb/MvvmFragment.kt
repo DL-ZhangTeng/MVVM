@@ -6,22 +6,22 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.zhangteng.base.base.BaseAdapter
 import com.zhangteng.app.MainActivity
 import com.zhangteng.app.R
 import com.zhangteng.app.databinding.MvvmDbFragmentBinding
-import com.zhangteng.mvvm.mvvm.BaseMvvmDbFragment
+import com.zhangteng.base.base.BaseAdapter
+import com.zhangteng.mvvm.mvvm.db.BaseMvvmFragment
 
 /**
  * description: 有databinding的mvvm
  * author: Swing
  * date: 2021/11/11
  */
-class MvvmDbFragment : BaseMvvmDbFragment<MvvmDbViewModel, MvvmDbFragmentBinding>() {
+class MvvmFragment : BaseMvvmFragment<MvvmDbFragmentBinding, MvvmDbViewModel>() {
     private val mAdapter by lazy { MeWebAdapter() }
 
     companion object {
-        fun newInstance() = MvvmDbFragment()
+        fun newInstance() = MvvmFragment()
     }
 
     override fun onCreateView(

@@ -6,11 +6,11 @@ import android.os.Bundle
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.zhangteng.app.R
 import com.zhangteng.base.adapter.NineGridViewClickAdapter
 import com.zhangteng.base.base.BaseActivity
 import com.zhangteng.base.bean.PreviewImageInfo
 import com.zhangteng.base.widget.NineGridView
-import com.zhangteng.app.R
 
 
 class NineImageActivity : BaseActivity() {
@@ -22,11 +22,21 @@ class NineImageActivity : BaseActivity() {
 
     override fun initView() {
         NineGridView.imageLoader = object : NineGridView.ImageLoader {
-            override fun onDisplayImage(context: Context?, imageView: ImageView?, url: String?) {
+            override fun getCacheImage(context: Context?, url: String?): Bitmap? {
+                return null
+            }
+
+            override fun onDisplayImage(
+                context: Context?,
+                imageView: ImageView?,
+                thumbnailUrl: String?,
+                bigImageUrl: String?,
+                onProgressListener: NineGridView.OnProgressListener?
+            ) {
                 context?.let {
                     imageView?.let { it1 ->
                         Glide.with(it)
-                            .load(url)
+                            .load(bigImageUrl ?: thumbnailUrl)
                             .apply(
                                 RequestOptions()
                                     .placeholder(R.mipmap.ic_launcher)
@@ -35,10 +45,6 @@ class NineImageActivity : BaseActivity() {
                             .into(it1)
                     }
                 }
-            }
-
-            override fun getCacheImage(url: String?): Bitmap? {
-                return null
             }
 
         }

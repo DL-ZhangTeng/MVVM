@@ -4,10 +4,10 @@ import android.os.Bundle
 import com.zhangteng.app.R
 import com.zhangteng.app.databinding.ActivityBaseMvvmDbDemoDbBinding
 import com.zhangteng.app.mvvm.vm.BaseMvvmDbDemoDbViewModel
-import com.zhangteng.mvvm.mvvm.BaseMvvmDbActivity
+import com.zhangteng.mvvm.mvvm.db.BaseMvvmActivity
 
-class BaseMvvmDbDemoDbActivity :
-    BaseMvvmDbActivity<BaseMvvmDbDemoDbViewModel, ActivityBaseMvvmDbDemoDbBinding>() {
+class BaseMvvmDbDemoActivity :
+    BaseMvvmActivity<ActivityBaseMvvmDbDemoDbBinding, BaseMvvmDbDemoDbViewModel>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_base_mvvm_db_demo_db)

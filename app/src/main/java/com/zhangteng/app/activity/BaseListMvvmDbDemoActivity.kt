@@ -10,10 +10,10 @@ import com.zhangteng.app.databinding.ActivityBaseListMvvmDbDemoDbBinding
 import com.zhangteng.app.http.entity.ArticlesBean
 import com.zhangteng.app.mvvm.vm.BaseListMvvmDbDemoDbViewModel
 import com.zhangteng.mvvm.adapter.BindingAdapter
-import com.zhangteng.mvvm.mvvm.BaseListMvvmDbActivity
+import com.zhangteng.mvvm.mvvm.db.BaseListMvvmActivity
 
-class BaseListMvvmDbDemoDbActivity :
-    BaseListMvvmDbActivity<BaseListMvvmDbDemoDbViewModel, ActivityBaseListMvvmDbDemoDbBinding, ArticlesBean, BindingAdapter.BindingViewHolder<ArticlesBean>, BaseListMvvmDemoDbAdapter>() {
+class BaseListMvvmDbDemoActivity :
+    BaseListMvvmActivity<ActivityBaseListMvvmDbDemoDbBinding, BaseListMvvmDbDemoDbViewModel, ArticlesBean, BindingAdapter.BindingViewHolder<ArticlesBean>, BaseListMvvmDemoDbAdapter>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

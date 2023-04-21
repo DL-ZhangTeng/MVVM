@@ -7,13 +7,13 @@ import android.view.ViewGroup
 import com.zhangteng.app.R
 import com.zhangteng.app.databinding.FragmentBaseMvvmDbDemoDbBinding
 import com.zhangteng.app.mvvm.vm.BaseMvvmDbDemoDbFragmentViewModel
-import com.zhangteng.mvvm.mvvm.BaseMvvmDbFragment
+import com.zhangteng.mvvm.mvvm.db.BaseMvvmFragment
 
-class BaseMvvmDbDemoDbFragment :
-    BaseMvvmDbFragment<BaseMvvmDbDemoDbFragmentViewModel, FragmentBaseMvvmDbDemoDbBinding>() {
+class BaseMvvmDbDemoFragment :
+    BaseMvvmFragment<FragmentBaseMvvmDbDemoDbBinding, BaseMvvmDbDemoDbFragmentViewModel>() {
 
     companion object {
-        fun newInstance() = BaseMvvmDbDemoDbFragment()
+        fun newInstance() = BaseMvvmDbDemoFragment()
     }
 
     override fun onCreateView(
