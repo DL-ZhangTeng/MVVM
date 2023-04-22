@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import com.zhangteng.app.http.Api
 import com.zhangteng.app.http.entity.ArticlesBean
 import com.zhangteng.app.http.entity.NavTypeBean
-import com.zhangteng.mvvm.base.BaseLoadingViewModel
+import com.zhangteng.mvvm.base.mvvm.BaseLoadingViewModel
 import com.zhangteng.httputils.http.HttpUtils
 import com.zhangteng.utils.IException
 import com.zhangteng.utils.d

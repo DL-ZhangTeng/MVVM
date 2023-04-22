@@ -1,5 +1,6 @@
-package com.zhangteng.mvvm.base
+package com.zhangteng.mvvm.base.mvvm
 
+import com.zhangteng.mvvm.base.BaseViewModel
 import com.zhangteng.mvvm.livedata.SingleLiveData
 import com.zhangteng.utils.IException
 import com.zhangteng.utils.IResponse
@@ -88,26 +89,6 @@ open class BaseLoadingViewModel : BaseViewModel() {
                     complete()
                 }
             )
-        }
-    }
-
-
-    /**
-     * 异常统一处理
-     */
-    private suspend fun handleException(
-        block: suspend CoroutineScope.() -> Unit,
-        error: suspend CoroutineScope.(IException) -> Unit,
-        complete: suspend CoroutineScope.() -> Unit
-    ) {
-        coroutineScope {
-            try {
-                block()
-            } catch (e: Throwable) {
-                error(IException.handleException(e))
-            } finally {
-                complete()
-            }
         }
     }
 

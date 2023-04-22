@@ -6,7 +6,6 @@ import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.zhangteng.app.fragment.BaseDemoFragment
 import com.zhangteng.app.mvvm.repository.TabLayoutDbRepository
-import com.zhangteng.base.adapter.CommonFragmentAdapter
 import com.zhangteng.base.widget.MyTabLayout
 import com.zhangteng.base.widget.MyTabLayoutMediator
 import com.zhangteng.mvvm.base.BaseViewModel

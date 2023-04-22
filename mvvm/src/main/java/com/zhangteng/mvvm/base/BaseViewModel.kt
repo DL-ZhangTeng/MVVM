@@ -2,7 +2,9 @@ package com.zhangteng.mvvm.base
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.zhangteng.utils.IException
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
@@ -38,6 +40,25 @@ open class BaseViewModel : ViewModel() {
     fun <T> launchFlow(block: suspend () -> T): Flow<T> {
         return flow {
             emit(block())
+        }
+    }
+
+    /**
+     * 异常统一处理
+     */
+    protected suspend fun handleException(
+        block: suspend CoroutineScope.() -> Unit,
+        error: suspend CoroutineScope.(IException) -> Unit,
+        complete: suspend CoroutineScope.() -> Unit
+    ) {
+        coroutineScope {
+            try {
+                block()
+            } catch (e: Throwable) {
+                error(IException.handleException(e))
+            } finally {
+                complete()
+            }
         }
     }
 }

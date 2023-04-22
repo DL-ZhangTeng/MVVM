@@ -1,4 +1,4 @@
-package com.zhangteng.mvvm.base
+package com.zhangteng.mvvm.base.mvvm
 
 import com.zhangteng.mvvm.livedata.SingleLiveData
 

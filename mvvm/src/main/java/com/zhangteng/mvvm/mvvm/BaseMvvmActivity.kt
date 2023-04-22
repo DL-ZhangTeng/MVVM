@@ -3,9 +3,9 @@ package com.zhangteng.mvvm.mvvm
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import com.zhangteng.base.base.BaseActivity
-import com.zhangteng.mvvm.base.BaseLoadingViewModel
-import com.zhangteng.mvvm.base.BaseStateViewModel
-import com.zhangteng.mvvm.base.BaseRefreshViewModel
+import com.zhangteng.mvvm.base.mvvm.BaseLoadingViewModel
+import com.zhangteng.mvvm.base.mvvm.BaseStateViewModel
+import com.zhangteng.mvvm.base.mvvm.BaseRefreshViewModel
 import com.zhangteng.mvvm.base.BaseViewModel
 import com.zhangteng.mvvm.manager.NetState
 import com.zhangteng.mvvm.manager.NetworkStateManager
