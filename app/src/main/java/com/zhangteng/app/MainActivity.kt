@@ -6,6 +6,7 @@ import android.view.View
 import com.zhangteng.app.activity.BaseDemoActivity
 import com.zhangteng.app.activity.BaseListMvvmDbDemoActivity
 import com.zhangteng.app.activity.BaseListMvvmDemoActivity
+import com.zhangteng.app.activity.BaseListMviDemoActivity
 import com.zhangteng.app.activity.NineImageActivity
 import com.zhangteng.app.activity.TabLayoutActivity
 import com.zhangteng.app.activity.TreeActivity
@@ -59,6 +60,10 @@ class MainActivity : BaseActivity() {
 
     fun onClickListMvvmDb(v: View) {
         jumpToActivity<BaseListMvvmDbDemoActivity>()
+    }
+
+    fun onClickListMvi(v: View) {
+        jumpToActivity<BaseListMviDemoActivity>()
     }
 
     override fun createStateViewHelper(): StateViewHelper {

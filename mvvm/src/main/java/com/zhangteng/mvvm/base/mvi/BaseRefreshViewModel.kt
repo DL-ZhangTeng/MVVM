@@ -11,7 +11,7 @@ abstract class BaseRefreshViewModel : BaseStateViewModel() {
      * date: 2023/4/22
      */
     sealed class RefreshUiState {
-        class finishLoadMoreState : IUiState
-        class finishRefreshState : IUiState
+        class FinishLoadMoreState : IUiState
+        class FinishRefreshState : IUiState
     }
 }

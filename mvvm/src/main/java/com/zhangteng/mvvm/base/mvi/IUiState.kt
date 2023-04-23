@@ -1,6 +1,5 @@
 package com.zhangteng.mvvm.base.mvi
 
-import android.view.View
 import com.zhangteng.utils.IException
 
 interface IUiState

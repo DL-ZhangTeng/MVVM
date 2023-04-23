@@ -1,0 +1,34 @@
+package com.zhangteng.app.mvi.repository
+
+import com.zhangteng.app.http.Api
+import com.zhangteng.app.http.BaseResult
+import com.zhangteng.app.http.entity.HomeListBean
+import com.zhangteng.app.http.entity.NavTypeBean
+import com.zhangteng.httputils.http.HttpUtils
+import com.zhangteng.mvvm.base.BaseNetRepository
+
+class BaseMviDemoRepository : BaseNetRepository() {
+
+    private val mService by lazy {
+        HttpUtils.instance.ConfigGlobalHttpUtils().createService(Api::class.java)
+    }
+
+    suspend fun getProjectList(page: Int, cid: Int): BaseResult<HomeListBean> {
+        return mService.getProjectList(page, cid)
+    }
+
+    /**
+     * 先请求tab数据
+     * */
+    suspend fun getData(): BaseResult<List<NavTypeBean>> {
+        return mService.naviJson()
+    }
+
+    /**
+     * 用Flow流的方式
+     * 操作符比较繁琐
+     * */
+    suspend fun getFirstData(): BaseResult<List<NavTypeBean>> {
+        return mService.naviJson()
+    }
+}

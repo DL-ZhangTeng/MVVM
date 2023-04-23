@@ -55,4 +55,10 @@
         android:layout_height="wrap_content"
         android:onClick="onClickListMvvmDb"
         android:text="onClickListMvvmDb" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClickListMvi"
+        android:text="onClickListMvi" />
 </LinearLayout>
