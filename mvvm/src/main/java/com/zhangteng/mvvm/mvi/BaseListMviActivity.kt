@@ -5,7 +5,8 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import com.zhangteng.base.base.BaseActivity
+import com.zhangteng.base.base.BaseAdapter
+import com.zhangteng.base.base.BaseListActivity
 import com.zhangteng.mvvm.base.BaseViewModel
 import com.zhangteng.mvvm.base.mvi.BaseLoadingViewModel
 import com.zhangteng.mvvm.base.mvi.BaseRefreshViewModel
@@ -14,7 +15,11 @@ import com.zhangteng.mvvm.manager.NetState
 import com.zhangteng.mvvm.manager.NetworkStateManager
 import com.zhangteng.mvvm.utils.getVmClazz
 
-abstract class BaseMviActivity<VM : BaseViewModel> : BaseActivity() {
+/**
+ * ViewModelActivity基类，把ViewModel注入进来了
+ */
+abstract class BaseListMviActivity<VM : BaseViewModel, D, VH : BaseAdapter.DefaultViewHolder, A : BaseAdapter<D, VH>> :
+    BaseListActivity<D, VH, A>() {
     lateinit var mViewModel: VM
 
     override fun onCreate(savedInstanceState: Bundle?) {

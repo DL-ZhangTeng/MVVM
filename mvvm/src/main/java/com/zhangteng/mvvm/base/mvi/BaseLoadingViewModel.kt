@@ -22,7 +22,7 @@ import kotlinx.coroutines.launch
 /**
  * ViewModel的带加载中基类
  */
-abstract class BaseMviViewModel : BaseViewModel() {
+abstract class BaseLoadingViewModel : BaseViewModel() {
 
     /**
      * description: UI 状态
@@ -36,20 +36,17 @@ abstract class BaseMviViewModel : BaseViewModel() {
     private val _userIntent = MutableSharedFlow<IUiIntent>()
     private val userIntent = _userIntent.asSharedFlow()
 
-    init {
-        viewModelScope.launch {
-            userIntent.distinctUntilChanged().collect {
-                handleUserIntent(it)
-            }
-        }
-    }
-
-    abstract fun handleUserIntent(intent: IUiIntent)
-
+    /**
+     * description 创建页面初始化时的UI状态，默认LoadingState
+     * @return IUiState
+     */
     protected open fun initUiState(): IUiState {
-        return LoadingState(true)
+        return LoadingUiState.LoadingState(true)
     }
 
+    /**
+     * description 发送IUiState
+     */
     protected fun sendUiState(block: IUiState.() -> IUiState) {
         _uiStateFlow.update { _uiStateFlow.value.block() }
     }
@@ -62,6 +59,12 @@ abstract class BaseMviViewModel : BaseViewModel() {
             _userIntent.emit(intent)
         }
     }
+
+    /**
+     * description 处理意图
+     * @param intent 意图
+     */
+    abstract fun handleUserIntent(intent: IUiIntent)
 
     /**
      *  不过滤请求结果
@@ -80,21 +83,21 @@ abstract class BaseMviViewModel : BaseViewModel() {
             launchFlow { block }
                 .onStart {
                     if (isShowDialog) {
-                        sendUiState { LoadingState(true) }
+                        sendUiState { LoadingUiState.LoadingState(true) }
                     }
                 }
                 .flowOn(Dispatchers.IO)
                 .catch { // 代码运行异常
                     error(IException.handleException(it))
-                    sendUiState { LoadingState(false) }
+                    sendUiState { LoadingUiState.LoadingState(false) }
                 }
                 .onCompletion {
                     // 如果发生了 异常，则可能多发送一次 LoadingState(false)
-                    sendUiState { LoadingState(false) }
+                    sendUiState { LoadingUiState.LoadingState(false) }
                 }
                 .flowOn(Dispatchers.Main)
                 .collect {
-                    sendUiState { LoadingState(false) }
+                    sendUiState { LoadingUiState.LoadingState(false) }
                     complete()
                 }
         }
@@ -119,17 +122,17 @@ abstract class BaseMviViewModel : BaseViewModel() {
             launchFlow { block() }
                 .onStart {
                     if (isShowDialog) {
-                        sendUiState { LoadingState(true) }
+                        sendUiState { LoadingUiState.LoadingState(true) }
                     }
                 }
                 .flowOn(Dispatchers.IO)
                 .catch { // 代码运行异常
                     error(IException.handleException(it))
-                    sendUiState { LoadingState(false) }
+                    sendUiState { LoadingUiState.LoadingState(false) }
                 }
                 .onCompletion {
                     // 如果发生了 异常，则可能多发送一次 LoadingState(false)
-                    sendUiState { LoadingState(false) }
+                    sendUiState { LoadingUiState.LoadingState(false) }
                 }
                 .flowOn(Dispatchers.Main)
                 .collect {
@@ -143,11 +146,28 @@ abstract class BaseMviViewModel : BaseViewModel() {
                         },
                         { error(it) },
                         {
-                            sendUiState { LoadingState(false) }
+                            sendUiState { LoadingUiState.LoadingState(false) }
                             complete()
                         }
                     )
                 }
         }
+    }
+
+    init {
+        viewModelScope.launch {
+            userIntent.distinctUntilChanged().collect {
+                handleUserIntent(it)
+            }
+        }
+    }
+
+    /**
+     * description: 正在加载页面状态
+     * author: Swing
+     * date: 2023/4/22
+     */
+    sealed class LoadingUiState {
+        class LoadingState(val isShowLoadingView: Boolean) : IUiState
     }
 }
