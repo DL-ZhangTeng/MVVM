@@ -61,6 +61,7 @@ object BindingAdapters {
     @BindingAdapter(
         value = [
             "glideImageUrl",
+            "glideThumbnailUrl",
             "glidePlaceHolder",
             "glideError",
             "glideDownsampleStrategy",
@@ -72,6 +73,7 @@ object BindingAdapters {
     @JvmStatic
     fun ImageView.glideLoadImage(
         glideImageUrl: String?,
+        glideThumbnailUrl: String?,
         glidePlaceHolder: Drawable?,
         glideError: Drawable?,
         glideDownsampleStrategy: DownsampleStrategy?,
@@ -86,10 +88,22 @@ object BindingAdapters {
         glidePlaceHolder?.let { requestOptions.placeholder(glidePlaceHolder) }
         glideTransformation?.let { requestOptions.transform(glideTransformation) }
         glideDownsampleStrategy?.let { requestOptions.downsample(glideDownsampleStrategy) }
-        Glide.with(context)
-            .load(glideImageUrl)
-            .apply(requestOptions)
-            .into(this)
+
+        if (glideThumbnailUrl.isNullOrEmpty()) {
+            Glide.with(context)
+                .load(glideImageUrl)
+                .apply(requestOptions)
+                .into(this)
+        } else {
+            Glide.with(context)
+                .load(glideImageUrl)
+                .thumbnail(
+                    Glide.with(context)
+                        .load(glideImageUrl)
+                )
+                .apply(requestOptions)
+                .into(this)
+        }
     }
 
     /**
