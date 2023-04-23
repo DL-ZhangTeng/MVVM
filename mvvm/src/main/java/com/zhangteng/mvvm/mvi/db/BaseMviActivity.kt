@@ -6,7 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import com.zhangteng.mvvm.BR
 import com.zhangteng.mvvm.base.BaseViewModel
-import com.zhangteng.mvvm.mvvm.BaseMvvmActivity
+import com.zhangteng.mvvm.mvi.BaseMviActivity
 
 
 /**
@@ -14,7 +14,7 @@ import com.zhangteng.mvvm.mvvm.BaseMvvmActivity
  * 需要使用Databind的请继承它
  */
 abstract class BaseMviActivity<DB : ViewDataBinding, VM : BaseViewModel> :
-    BaseMvvmActivity<VM>() {
+    BaseMviActivity<VM>() {
 
     lateinit var mDatabind: DB
 

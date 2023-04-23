@@ -8,14 +8,14 @@ import com.zhangteng.base.base.BaseAdapter
 import com.zhangteng.mvvm.BR
 import com.zhangteng.mvvm.adapter.BindingAdapter
 import com.zhangteng.mvvm.base.BaseViewModel
-import com.zhangteng.mvvm.mvvm.BaseListMvvmFragment
+import com.zhangteng.mvvm.mvi.BaseListMviFragment
 
 /**
  * ViewModelFragment基类，自动把ViewModel注入Fragment和Databind注入进来了
  * 需要使用Databind的清继承它
  */
 abstract class BaseListMviFragment<DB : ViewDataBinding, VM : BaseViewModel, D, VH : BindingAdapter.BindingViewHolder<D>, A : BaseAdapter<D, VH>> :
-    BaseListMvvmFragment<VM, D, VH, A>() {
+    BaseListMviFragment<VM, D, VH, A>() {
 
     //该类绑定的ViewDataBinding
     lateinit var mDatabind: DB

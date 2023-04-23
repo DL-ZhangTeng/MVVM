@@ -5,7 +5,7 @@ import android.view.View
 import androidx.viewbinding.ViewBinding
 import com.zhangteng.base.base.BaseAdapter
 import com.zhangteng.mvvm.base.BaseViewModel
-import com.zhangteng.mvvm.mvvm.BaseListMvvmFragment
+import com.zhangteng.mvvm.mvi.BaseListMviFragment
 import com.zhangteng.utils.ViewBindingUtils
 
 /**
@@ -13,7 +13,7 @@ import com.zhangteng.utils.ViewBindingUtils
  */
 
 abstract class BaseListMviFragment<vb : ViewBinding?, VM : BaseViewModel, D, VH : BaseAdapter.DefaultViewHolder, A : BaseAdapter<D, VH>> :
-    BaseListMvvmFragment<VM, D, VH, A>() {
+    BaseListMviFragment<VM, D, VH, A>() {
 
     protected var mBinding: vb? = null
 

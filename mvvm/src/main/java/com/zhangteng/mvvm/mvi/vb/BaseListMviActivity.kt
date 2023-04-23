@@ -5,14 +5,14 @@ import android.view.ViewGroup
 import androidx.viewbinding.ViewBinding
 import com.zhangteng.base.base.BaseAdapter
 import com.zhangteng.mvvm.base.BaseViewModel
-import com.zhangteng.mvvm.mvvm.BaseListMvvmActivity
+import com.zhangteng.mvvm.mvi.BaseListMviActivity
 import com.zhangteng.utils.ViewBindingUtils
 
 /**
  * ViewModelActivity基类，把ViewModel注入进来了
  */
 abstract class BaseListMviActivity<vb : ViewBinding?, VM : BaseViewModel, D, VH : BaseAdapter.DefaultViewHolder, A : BaseAdapter<D, VH>> :
-    BaseListMvvmActivity<VM, D, VH, A>() {
+    BaseListMviActivity<VM, D, VH, A>() {
 
     protected var mBinding: vb? = null
 
