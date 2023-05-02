@@ -35,7 +35,7 @@ class BaseListMviDemoActivity :
             // STATE.CREATED 低于 STARTED 状态；若因某种原因，界面重建，重走 Activity#onCreate 生命周期，就会取消该协程，直到 STARTED 状态之后，被调用者重新触发
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 (mViewModel as BaseRefreshViewModel).uiStateFlow.collect {
-                    if (it is DataUiState.LoadSuccessPageState<*>) {
+                    if (it is DataUiState.LoadSuccessState<*>) {
                         when (it.subState) {
                             is BaseMviDemoViewModel.BaseMviDemoUiState.RefreshPageDataSuccess -> {
                                 mLastPage = mPage

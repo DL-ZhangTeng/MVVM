@@ -44,11 +44,11 @@ abstract class BaseMviActivity<VM : BaseViewModel> : BaseActivity() {
                 if (mViewModel is BaseRefreshViewModel) {
                     (mViewModel as BaseRefreshViewModel).uiStateFlow.collect {
                         when (it) {
-                            is BaseRefreshViewModel.RefreshUiState.finishRefreshState -> {
+                            is BaseRefreshViewModel.RefreshUiState.FinishRefreshState -> {
                                 finishRefreshOrLoadMore()
                             }
 
-                            is BaseRefreshViewModel.RefreshUiState.finishLoadMoreState -> {
+                            is BaseRefreshViewModel.RefreshUiState.FinishLoadMoreState -> {
                                 finishRefreshOrLoadMore()
                             }
                         }

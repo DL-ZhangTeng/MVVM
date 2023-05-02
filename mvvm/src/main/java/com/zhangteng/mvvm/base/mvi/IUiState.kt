@@ -29,6 +29,9 @@ sealed class DataUiState {
      * author: Swing
      * date: 2023/4/22
      */
-    class LoadSuccessPageState<T>(val subState: IUiState, val data: List<T>?, val pageNum: Int) :
-        IUiState
+    class LoadSuccessPageState<T>(
+        val subState: IUiState,
+        val data: MutableList<T?>?,
+        val pageNum: Int
+    ) : IUiState
 }
