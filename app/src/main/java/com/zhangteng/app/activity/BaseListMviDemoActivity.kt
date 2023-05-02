@@ -35,16 +35,16 @@ class BaseListMviDemoActivity :
             // STATE.CREATED 低于 STARTED 状态；若因某种原因，界面重建，重走 Activity#onCreate 生命周期，就会取消该协程，直到 STARTED 状态之后，被调用者重新触发
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 (mViewModel as BaseRefreshViewModel).uiStateFlow.collect {
-                    if (it is DataUiState.LoadSuccessState<*>) {
+                    if (it is DataUiState.LoadSuccessPageState<*>) {
                         when (it.subState) {
                             is BaseMviDemoViewModel.BaseMviDemoUiState.RefreshPageDataSuccess -> {
                                 mLastPage = mPage
-                                showDataSuccess(Int.MAX_VALUE, it.data as List<ArticlesBean?>?)
+                                showDataSuccess(Int.MAX_VALUE, it.data)
                             }
 
                             is BaseMviDemoViewModel.BaseMviDemoUiState.LoadPageDataSuccess -> {
                                 mLastPage = mPage
-                                showDataSuccess(Int.MAX_VALUE, it.data as List<ArticlesBean?>?)
+                                showDataSuccess(Int.MAX_VALUE, it.data)
                             }
                         }
                     }

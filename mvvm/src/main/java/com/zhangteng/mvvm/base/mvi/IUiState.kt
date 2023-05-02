@@ -31,7 +31,7 @@ sealed class DataUiState {
      */
     class LoadSuccessPageState<T>(
         val subState: IUiState,
-        val data: MutableList<T?>?,
+        val data: List<T?>?,
         val pageNum: Int
     ) : IUiState
 }
