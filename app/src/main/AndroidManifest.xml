@@ -34,13 +34,7 @@
             android:name=".activity.BaseMvvmDemoActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.BaseTitlebarDemoActivity"
-            android:exported="false" />
-        <activity
             android:name=".activity.BaseListDemoActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.BaseDemoActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
@@ -51,12 +45,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activity.TreeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.NineImageActivity"
-            android:exported="false" />
         <activity
             android:name=".ui.mvvmdb.MvvmActivity"
             android:exported="false" />

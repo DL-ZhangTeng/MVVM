@@ -1,16 +1,21 @@
 package com.zhangteng.app.mvvm.repository
 
+import android.content.Context
+import com.zhangteng.app.di.ApiEntryPoint
 import com.zhangteng.app.http.Api
 import com.zhangteng.app.http.BaseResult
 import com.zhangteng.app.http.entity.HomeListBean
 import com.zhangteng.app.http.entity.NavTypeBean
 import com.zhangteng.mvvm.base.BaseNetRepository
-import com.zhangteng.httputils.http.HttpUtils
+import dagger.hilt.EntryPoints
+import dagger.hilt.android.qualifiers.ApplicationContext
+import javax.inject.Inject
 
-class BaseListMvvmDemoRepository : BaseNetRepository() {
+class BaseListMvvmDemoRepository @Inject constructor(@ApplicationContext mContext: Context) :
+    BaseNetRepository() {
 
-    private val mService by lazy {
-        HttpUtils.instance.ConfigGlobalHttpUtils().createService(Api::class.java)
+    private val mService: Api by lazy {
+        EntryPoints.get(mContext, ApiEntryPoint::class.java).getApi()
     }
 
     suspend fun getProjectList(page: Int, cid: Int): BaseResult<HomeListBean> {

@@ -7,7 +7,9 @@ import com.zhangteng.base.base.BaseApplication
 import com.zhangteng.httputils.http.HttpUtils
 import com.zhangteng.utils.R
 import com.zhangteng.utils.StateViewHelper
+import dagger.hilt.android.HiltAndroidApp
 
+@HiltAndroidApp
 class BaseLibraryApplication : BaseApplication() {
     override fun onCreate() {
         super.onCreate()

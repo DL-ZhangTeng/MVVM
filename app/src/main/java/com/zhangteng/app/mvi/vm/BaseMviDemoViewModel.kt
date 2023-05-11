@@ -6,9 +6,13 @@ import com.zhangteng.mvvm.base.mvi.DataUiState
 import com.zhangteng.mvvm.base.mvi.IUiIntent
 import com.zhangteng.mvvm.base.mvi.IUiState
 import com.zhangteng.mvvm.base.mvi.InitDataIntent
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class BaseMviDemoViewModel : BaseRefreshViewModel() {
-    private val mRepository by lazy { BaseMviDemoRepository() }
+@HiltViewModel
+class BaseMviDemoViewModel @Inject constructor() : BaseRefreshViewModel() {
+    @Inject
+    lateinit var mRepository: BaseMviDemoRepository
 
     override fun handleUserIntent(intent: IUiIntent) {
         when (intent) {

@@ -17,7 +17,9 @@ import com.zhangteng.mvvm.base.mvi.BaseRefreshViewModel
 import com.zhangteng.mvvm.base.mvi.DataUiState
 import com.zhangteng.mvvm.base.mvi.InitDataIntent
 import com.zhangteng.mvvm.mvi.vb.BaseListMviActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class BaseListMviDemoActivity :
     BaseListMviActivity<ActivityBaseMviDemoBinding, BaseMviDemoViewModel, ArticlesBean, BaseAdapter.DefaultViewHolder, BaseListMvvmDemoAdapter>() {
 

@@ -8,31 +8,6 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/tv_TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onClickBaseLayout"
-        android:text="Hello World!" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onClickTabLayout"
-        android:text="onClickTabLayout" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onClickTree"
-        android:text="onClickTree" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onClickNineImage"
-        android:text="onClickNineImage" />
-
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="onClickMvvm"

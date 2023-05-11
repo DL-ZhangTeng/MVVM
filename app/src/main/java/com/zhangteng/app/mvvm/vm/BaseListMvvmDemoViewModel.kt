@@ -5,16 +5,24 @@ import com.zhangteng.app.http.Api
 import com.zhangteng.app.http.entity.ArticlesBean
 import com.zhangteng.app.http.entity.NavTypeBean
 import com.zhangteng.app.mvvm.repository.BaseListMvvmDemoRepository
-import com.zhangteng.mvvm.base.mvvm.BaseLoadingViewModel
 import com.zhangteng.httputils.http.HttpUtils
+import com.zhangteng.mvvm.base.mvvm.BaseLoadingViewModel
 import com.zhangteng.utils.IException
 import com.zhangteng.utils.d
 import com.zhangteng.utils.e
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.flatMapConcat
+import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.onCompletion
+import kotlinx.coroutines.flow.onStart
+import javax.inject.Inject
 
-class BaseListMvvmDemoViewModel : BaseLoadingViewModel() {
-    private val mRepository by lazy { BaseListMvvmDemoRepository() }
+@HiltViewModel
+class BaseListMvvmDemoViewModel @Inject constructor() : BaseLoadingViewModel() {
+    @Inject
+    lateinit var mRepository: BaseListMvvmDemoRepository
 
     var navData = MutableLiveData<MutableList<NavTypeBean>>()
 

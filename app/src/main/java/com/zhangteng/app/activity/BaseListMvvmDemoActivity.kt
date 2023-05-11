@@ -10,7 +10,9 @@ import com.zhangteng.app.http.entity.ArticlesBean
 import com.zhangteng.app.mvvm.vm.BaseListMvvmDemoViewModel
 import com.zhangteng.base.base.BaseAdapter
 import com.zhangteng.mvvm.mvvm.BaseListMvvmActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class BaseListMvvmDemoActivity :
     BaseListMvvmActivity<BaseListMvvmDemoViewModel, ArticlesBean, BaseAdapter.DefaultViewHolder, BaseListMvvmDemoAdapter>() {
 
