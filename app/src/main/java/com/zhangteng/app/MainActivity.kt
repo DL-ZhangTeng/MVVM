@@ -1,14 +1,12 @@
 package com.zhangteng.app
 
-import android.content.DialogInterface
 import android.os.Bundle
 import android.view.View
+import com.zhangteng.app.activity.BaseListMviDemoActivity
 import com.zhangteng.app.activity.BaseListMvvmDbDemoActivity
 import com.zhangteng.app.activity.BaseListMvvmDemoActivity
-import com.zhangteng.app.activity.BaseListMviDemoActivity
 import com.zhangteng.app.ui.mvvm.MvvmActivity
 import com.zhangteng.base.base.BaseActivity
-import com.zhangteng.utils.StateViewHelper
 import com.zhangteng.utils.jumpToActivity
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -46,34 +44,5 @@ class MainActivity : BaseActivity() {
 
     fun onClickListMvi(v: View) {
         jumpToActivity<BaseListMviDemoActivity>()
-    }
-
-    override fun createStateViewHelper(): StateViewHelper {
-        return StateViewHelper().apply {
-            againRequestListener = object : StateViewHelper.AgainRequestListener {
-                override fun request(view: View) {
-                    againRequestByStateViewHelper(view)
-                }
-            }
-            cancelRequestListener = object : StateViewHelper.CancelRequestListener {
-                override fun cancel(dialog: DialogInterface) {
-                    cancelRequestByStateViewHelper(dialog)
-                }
-            }
-        }
-    }
-
-    override fun showProgressDialog(mLoadingText: String?) {
-        mStateViewHelper.showProgressDialog(this, R.drawable.loading5, mLoadingText)
-    }
-
-    override fun againRequestByStateViewHelper(view: View) {
-        super.againRequestByStateViewHelper(view)
-
-    }
-
-    override fun cancelRequestByStateViewHelper(dialog: DialogInterface) {
-        super.cancelRequestByStateViewHelper(dialog)
-
     }
 }
