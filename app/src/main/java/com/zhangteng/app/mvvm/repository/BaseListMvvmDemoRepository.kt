@@ -9,8 +9,10 @@ import com.zhangteng.app.http.entity.NavTypeBean
 import com.zhangteng.mvvm.base.BaseNetRepository
 import dagger.hilt.EntryPoints
 import dagger.hilt.android.qualifiers.ApplicationContext
+import dagger.hilt.android.scopes.ViewModelScoped
 import javax.inject.Inject
 
+@ViewModelScoped
 class BaseListMvvmDemoRepository @Inject constructor(@ApplicationContext mContext: Context) :
     BaseNetRepository() {
 
